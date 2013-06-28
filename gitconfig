@@ -1,0 +1,5 @@
+[user]
+	name = Jay Vana
+	email = jsvana@mtu.edu
+[branch]
+	autosetuprebase = always
