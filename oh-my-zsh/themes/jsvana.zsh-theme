@@ -33,7 +33,11 @@ function my_git_prompt() {
     STATUS=" $STATUS"
   fi
 
-  echo "$ZSH_THEME_GIT_PROMPT_PREFIX$(my_current_branch)$STATUS$ZSH_THEME_GIT_PROMPT_SUFFIX"
+  GIT_P="$ZSH_THEME_GIT_PROMPT_PREFIX$(my_current_branch)$STATUS$ZSH_THEME_GIT_PROMPT_SUFFIX"
+
+  if [[ -n $GIT_P ]]; then
+    echo " $GIT_P"
+  fi
 }
 
 function my_current_branch() {
@@ -50,7 +54,7 @@ PROMPT=$'$(ssh_connection)%{$fg_bold[green]%}%n@%m%{$reset_color%}$(my_git_promp
 RPROMPT='%{$fg[green]%}%T%{$reset_color%}'
 
 ZSH_THEME_PROMPT_RETURNCODE_PREFIX="%{$fg_bold[red]%}"
-ZSH_THEME_GIT_PROMPT_PREFIX="$fg[white](%{$fg_bold[yellow]%}"
+ZSH_THEME_GIT_PROMPT_PREFIX="$fg_bold[white](%{$fg_bold[yellow]%}"
 ZSH_THEME_GIT_PROMPT_AHEAD="%{$fg_bold[magenta]%}↑"
 ZSH_THEME_GIT_PROMPT_STAGED="%{$fg_bold[green]%}●"
 ZSH_THEME_GIT_PROMPT_UNSTAGED="%{$fg_bold[red]%}●"
