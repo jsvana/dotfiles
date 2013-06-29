@@ -21,6 +21,27 @@ set laststatus=2
 set encoding=utf-8
 syntax on
 
+set scrolloff=5
+
+set pastetoggle=<F2>
+nmap <c-v> <F2>
+
+set directory=/tmp
+
+set autoread
+
+set shiftround
+
+nmap <S-k> <S-{>
+nmap <S-j> <S-}>
+vmap <S-k> <S-{>
+vmap <S-j> <S-}>
+
+nmap <S-=> <c-w><S-=>
+nmap <S--> <c-w><S-->
+vmap <S-=> <c-w><S-=>
+vmap <S--> <c-w><S-->
+
 set colorcolumn=80
 
 set listchars=tab:▸\ ,eol:¬
