@@ -10,6 +10,7 @@ function config_link {
 
 config_link vimrc
 config_link vim
+config_link oh-my-zsh
 config_link zshrc
 config_link gitconfig
 config_link tmux.conf
