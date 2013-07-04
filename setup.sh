@@ -16,9 +16,20 @@ config_link gitconfig
 config_link tmux.conf
 
 # Stupid irssi
-mkdir ~/.irssi
-ln -s `pwd`/irssi.config ~/.irssi/config
+if [[ `uname` != "Darwin" ]]
+then
+	mkdir ~/.irssi
+	ln -s `pwd`/irssi.config ~/.irssi/config
+fi
 
 mkdir ~/go
+
+if [[ `uname` == "Darwin" ]]
+then
+	mkdir ~/Projects
+elif [[ `uname` == "Linux" ]]
+then
+	mkdir ~/projects
+fi
 
 vim +BundleInstall +qall
