@@ -6,8 +6,6 @@ set nohlsearch
 
 color kib_darktango
 
-"set autoindent
-"set smartindent
 set cindent
 
 set tabstop=2
@@ -18,6 +16,8 @@ set incsearch
 set nofoldenable
 
 set noshowmode
+
+set nowrap
 
 let mapleader = ","
 
@@ -31,6 +31,9 @@ Bundle 'phleet/vim-arcanist'
 Bundle 'myusuf3/numbers.vim'
 Bundle 'leafgarland/typescript-vim'
 Bundle 'Shougo/unite.vim'
+Bundle 'jeetsukumaran/vim-buffergator'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'vim-scripts/Tabmerge'
 
 set rnu
 
@@ -42,8 +45,6 @@ set scrolloff=5
 
 set pastetoggle=<F2>
 nmap <c-v> <F2>
-
-nnoremap <leader>b :b#<CR>
 
 set directory=/tmp
 
@@ -60,6 +61,8 @@ nmap <S-=> <c-w><S-=>
 nmap <S--> <c-w><S-->
 vmap <S-=> <c-w><S-=>
 vmap <S--> <c-w><S-->
+
+nmap ,t :tabnew<CR>
 
 set colorcolumn=80
 

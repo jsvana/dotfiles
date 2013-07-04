@@ -4,7 +4,6 @@ ZSH_THEME="jsvana"
 
 plugins=(git nyan)
 
-alias irssi="screen -dR irssi irssi"
 alias vi="vim"
 
 source $ZSH/oh-my-zsh.sh
@@ -16,4 +15,4 @@ export EDITOR=/usr/bin/vim
 
 export GOPATH=$HOME/go
 
-export PATH=$PATH:$HOME/bin:/usr/local/share/npm/bin
+export PATH=$PATH:$HOME/bin:/usr/local/share/npm/bin:/usr/local/sbin
