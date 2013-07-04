@@ -3,3 +3,5 @@
 	email = jsvana@mtu.edu
 [branch]
 	autosetuprebase = always
+[push]
+	default = simple
