@@ -16,7 +16,9 @@ config_link gitconfig
 config_link tmux.conf
 
 # Stupid irssi
-mkdir -p ~/.irssi
+mkdir ~/.irssi
 ln -s `pwd`/irssi.config ~/.irssi/config
+
+mkdir ~/go
 
 vim +BundleInstall +qall
