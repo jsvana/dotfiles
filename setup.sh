@@ -2,10 +2,10 @@
 # Credit to @belak for the base of this
 
 function config_link {
-        if [[ ! -e ~/.$1 ]]
-        then
-                ln -s `pwd`/$1 ~/.$1
-        fi
+  if [[ ! -e ~/.$1 ]]
+  then
+    ln -s `pwd`/$1 ~/.$1
+  fi
 }
 
 function aur_build {
@@ -34,6 +34,14 @@ then
 	mkdir ~/Projects
 elif [[ `uname` == "Linux" ]]
 then
+	# Setup SSH
+	sudo $EDITOR /etc/ssh/sshd_config
+	sudo systemctl restart sshd
+
+	# iptables
+	./iptables.setup
+
+	# rbenv
 	aur_build rbenv
 	eval "$(rbenv init -)"
 	aur_build ruby-build
