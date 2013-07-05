@@ -8,6 +8,14 @@ function config_link {
         fi
 }
 
+function aur_build {
+  pushd .
+  cower -dd $1
+  cd $1
+  makepkg -si
+  popd
+}
+
 config_link vimrc
 config_link vim
 config_link oh-my-zsh
@@ -16,11 +24,8 @@ config_link gitconfig
 config_link tmux.conf
 
 # Stupid irssi
-if [[ `uname` != "Darwin" ]]
-then
-	mkdir ~/.irssi
-	ln -s `pwd`/irssi.config ~/.irssi/config
-fi
+mkdir ~/.irssi
+ln -s `pwd`/irssi.config ~/.irssi/config
 
 mkdir ~/go
 
@@ -29,6 +34,10 @@ then
 	mkdir ~/Projects
 elif [[ `uname` == "Linux" ]]
 then
+	aur_build rbenv
+	eval "$(rbenv init -)"
+	aur_build ruby-build
+
 	mkdir ~/projects
 fi
 
