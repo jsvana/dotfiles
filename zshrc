@@ -22,3 +22,4 @@ export PATH=$PATH:$HOME/bin:/usr/local/share/npm/bin:/usr/local/sbin
 
 # rbenv
 export PATH=$HOME/.rbenv/bin:$PATH
+eval "$(rbenv init -)"
