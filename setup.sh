@@ -41,17 +41,41 @@ then
 	eval "$(rbenv init -)"
 elif [[ `uname -s` == "Linux" ]]
 then
-	# Setup SSH
-	sudo $EDITOR /etc/ssh/sshd_config
-	sudo systemctl restart sshd
+	read -p "Setup sshd? [Y/n]" choice
+	case $choice in
+			[Nn]*)
+				echo "Skipping sshd"
+				;;
+			*) 
+				# Setup SSH
+				sudo $EDITOR /etc/ssh/sshd_config
+				sudo systemctl restart sshd
+				;;
+	esac
 
-	# iptables
-	./iptables.setup
+	read -p "Setup iptables? [Y/n]" choice
+	case $choice in
+			[Nn]*)
+				echo "Skipping iptables"
+				;;
+			*) 
+				# iptables
+				./iptables.setup
+				;;
+	esac
 
-	# rbenv
-	aur_build rbenv
-	eval "$(rbenv init -)"
-	aur_build ruby-build
+	read -p "Setup rbenv? [Y/n]" choice
+	case $choice in
+		[Nn]*)
+			echo "Skipping rbenv"
+			;;
+		*)
+			# rbenv
+			aur_build rbenv
+			eval "$(rbenv init -)"
+			aur_build ruby-build
+			;;
+	esac
 
 	mkdir ~/projects
 fi
