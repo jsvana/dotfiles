@@ -21,11 +21,13 @@ config_link vim
 config_link oh-my-zsh
 config_link zshrc
 config_link gitconfig
+config_link hgrc
 config_link tmux.conf
 
 # Stupid irssi
 mkdir ~/.irssi
 ln -s `pwd`/irssi.config ~/.irssi/config
+# TODO: Setup irssi scripts (nickcolor.pl, format_identify.pl)
 
 mkdir ~/go
 
