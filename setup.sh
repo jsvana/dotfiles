@@ -80,4 +80,10 @@ then
 	mkdir ~/projects
 fi
 
-vim +BundleInstall +qall
+if $(vim --version | grep '7.3' &> /dev/null)
+then
+	vim +BundleInstall +qall
+else
+then
+	echo "vim is out of date, you're gonna have a bad time"
+fi
