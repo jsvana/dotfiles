@@ -34,6 +34,15 @@ mkdir ~/go
 if [[ `uname` == "Darwin" ]]
 then
 	mkdir ~/Projects
+
+	# Setup homebrew
+	ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
+
+	brew install wget
+	brew install rbenv
+	brew install ruby-build
+
+	eval "$(rbenv init -)"
 elif [[ `uname` == "Linux" ]]
 then
 	# Setup SSH
