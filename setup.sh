@@ -31,7 +31,7 @@ ln -s `pwd`/irssi.config ~/.irssi/config
 
 mkdir ~/go
 
-if [[ `uname` == "Darwin" ]]
+if [[ `uname -s` == "Darwin" ]]
 then
 	mkdir ~/Projects
 
@@ -43,7 +43,7 @@ then
 	brew install ruby-build
 
 	eval "$(rbenv init -)"
-elif [[ `uname` == "Linux" ]]
+elif [[ `uname -s` == "Linux" ]]
 then
 	# Setup SSH
 	sudo $EDITOR /etc/ssh/sshd_config
