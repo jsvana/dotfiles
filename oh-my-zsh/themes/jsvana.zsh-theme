@@ -51,38 +51,37 @@ function ssh_connection() {
 }
 
 function my_hg_prompt() {
-	if [[ -d .hs ]] || $(hg summary > /dev/null 2>&1)
+	branch=`hg prompt "{branch}" 2> /dev/null`
+	if [[ -z $branch ]]
 	then
-		INDEX=$(hg status 2> /dev/null)
-		STATUS=""
-
-		if $(echo "$INDEX" | grep -E -e '^[!M] ' &> /dev/null)
-		then
-			STATUS="$STATUS$ZSH_THEME_GIT_PROMPT_UNSTAGED"
-		fi
-
-		if $(echo "$INDEX" | grep -E -e '^\? ' &> /dev/null)
-		then
-			STATUS="$STATUS$ZSH_THEME_GIT_PROMPT_UNTRACKED"
-		fi
-
-		if $(echo "$INDEX" | grep -E -e '^A ' &> /dev/null)
-		then
-			STATUS="$STATUS$ZSH_THEME_GIT_PROMPT_STAGED"
-		fi
-
-		if $(hg summary --remote | grep outgoing &> /dev/null)
-		then
-			STATUS="$STATUS$ZSH_THEME_GIT_PROMPT_AHEAD"
-		fi
-
-		if [[ -n $STATUS ]]
-		then
-			STATUS=" $STATUS"
-		fi
-
-		echo " %{$fg_bold[blue]%}($(hg branch)$STATUS%{$fg_bold[blue]%})%{$reset_color%}"
+		echo ""
+		return
 	fi
+	STATUS=""
+	unstaged=`hg prompt "{status|modified}" 2> /dev/null`
+	if [[ -n $unstaged ]]
+	then
+		STATUS="$STATUS$ZSH_THEME_GIT_PROMPT_UNSTAGED"
+	fi
+
+	untracked=`hg prompt "{status|unknown}" 2> /dev/null`
+	if [[ -n $untracked ]]
+	then
+		STATUS="$STATUS$ZSH_THEME_GIT_PROMPT_UNTRACKED"
+	fi
+
+	outgoing=`hg prompt "{outgoing}" 2> /dev/null`
+	if [[ -n $outgoing ]]
+	then
+		STATUS="$STATUS$ZSH_THEME_GIT_PROMPT_AHEAD"
+	fi
+
+	if [[ -n $STATUS ]]
+	then
+		$STATUS=" $STATUS"
+	fi
+
+	echo " %{$fg_bold[blue]%}($branch$STATUS%{$fg_bold[blue]%})%{$reset_color%}"
 }
 
 PROMPT=$'$(ssh_connection)%{$fg_bold[green]%}%n@%m%{$reset_color%}$(my_git_prompt)$(my_hg_prompt) %{$fg[cyan]%}<%~>%{$reset_color%}\n%# '

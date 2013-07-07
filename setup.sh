@@ -36,6 +36,8 @@ then
 	ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
 
 	brew install wget
+	brew install git
+	brew install mercurial
 	brew install rbenv
 	brew install ruby-build
 
@@ -44,6 +46,9 @@ elif [[ `uname -s` == "Linux" ]]
 then
 	if [ -e /etc/arch-release ]
 	then
+		sudo pacman -S wget git mercurial
+		sudo -k
+
 		read -p "Setup sshd? [Y/n]" choice
 		case $choice in
 				[Nn]*)

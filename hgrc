@@ -1,2 +1,5 @@
 [ui]
 username = jsvana
+
+[extensions]
+prompt = ~/.configs/hg-prompt/prompt.py

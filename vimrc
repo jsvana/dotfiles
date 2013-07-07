@@ -26,7 +26,8 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 
-Bundle 'Lokaltog/vim-powerline'
+Bundle 'bling/vim-airline'
+Bundle 'bling/vim-bufferline'
 Bundle 'phleet/vim-arcanist'
 Bundle 'myusuf3/numbers.vim'
 Bundle 'leafgarland/typescript-vim'
