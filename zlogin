@@ -26,9 +26,9 @@ else
     # the actual process id, regardless of what `ps -ef` reports as the ppid
     agent_sock="$(find /tmp -path "*ssh*" -type s -iname "agent.$agent_ppid")"
  
-    echo "Agent pid $agent_pid"
+		#echo "Agent pid $agent_pid"
     export SSH_AGENT_PID="$agent_pid"
  
-    echo "Agent sock $agent_sock"
+		#echo "Agent sock $agent_sock"
     export SSH_AUTH_SOCK="$agent_sock"
 fi
