@@ -71,6 +71,11 @@ function my_hg_prompt() {
 			STATUS="$STATUS$ZSH_THEME_GIT_PROMPT_STAGED"
 		fi
 
+		if $(hg summary --remote | grep outgoing &> /dev/null)
+		then
+			STATUS="$STATUS$ZSH_THEME_GIT_PROMPT_AHEAD"
+		fi
+
 		if [[ -n $STATUS ]]
 		then
 			STATUS=" $STATUS"
