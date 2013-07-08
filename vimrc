@@ -68,6 +68,7 @@ set autoread
 
 set shiftround
 
+" Easy block movement
 nmap <S-k> <S-{>
 nmap <S-j> <S-}>
 vmap <S-k> <S-{>
@@ -88,6 +89,10 @@ nmap ,t :tabnew<CR>
 nmap ,v :vsp<CR>
 nmap ,h :sp<CR>
 
+" Yay emmet
+nmap <TAB> <c-y>,
+
+" More than a now-arbitrary limit is bad, you know.
 set colorcolumn=81
 
 " Show whitespace
