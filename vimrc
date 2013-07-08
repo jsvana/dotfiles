@@ -87,14 +87,17 @@ vmap <S--> <c-w><S-->
 let mapleader = ","
 
 " Easy tab creation
-nmap ,t :tabnew<CR>
+nmap <leader>t :tabnew<CR>
 
 " Easy splits
-nmap ,v :vsp<CR>
-nmap ,h :sp<CR>
+nmap <leader>v :vsp<CR>
+nmap <leader>h :sp<CR>
 
 " Yay emmet
 nmap <TAB> <c-y>,
+
+" Easy .c(pp)/.h switching
+nmap <leader>a :A<CR>
 
 " More than a now-arbitrary limit is bad, you know.
 set colorcolumn=81
