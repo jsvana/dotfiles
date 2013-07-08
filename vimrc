@@ -46,6 +46,8 @@ Bundle 'jeetsukumaran/vim-buffergator'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'vim-scripts/Tabmerge'
 Bundle 'mattn/zencoding-vim'
+Bundle 'Raimondi/delimitMate'
+Bundle 'kshenoy/vim-signature'
 
 " Well this is nice.
 set rnu
