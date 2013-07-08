@@ -7,9 +7,6 @@ set mouse=a
 " Blasted highlighting is so obnoxious.
 set nohlsearch
 
-" Dat color scheme
-color kib_darktango
-
 " Because auto and smart are no longer cool.
 set cindent
 
@@ -53,6 +50,10 @@ Bundle 'Raimondi/delimitMate'
 Bundle 'kshenoy/vim-signature'
 Bundle 'vim-scripts/a.vim'
 Bundle 'tpope/vim-fugitive'
+Bundle 'chriskempson/base16-vim'
+
+" Dat color scheme
+color kib_darktango
 
 " Well this is nice.
 set rnu
