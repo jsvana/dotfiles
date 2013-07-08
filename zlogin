@@ -24,7 +24,7 @@ else
  
     # and the actual auth socket file name is simply numerically one less than
     # the actual process id, regardless of what `ps -ef` reports as the ppid
-    agent_sock="$(find /tmp -path "*ssh*" -type s -iname "agent.$agent_ppid")"
+    agent_sock="$(find /tmp -path "*ssh*" -type s -iname "agent.$agent_ppid" 2> /dev/null)"
  
 		#echo "Agent pid $agent_pid"
     export SSH_AGENT_PID="$agent_pid"
