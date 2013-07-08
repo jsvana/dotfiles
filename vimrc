@@ -99,6 +99,9 @@ nmap <TAB> <c-y>,
 " Easy .c(pp)/.h switching
 nmap <leader>a :A<CR>
 
+" Quick buffer switching
+nmap <leader>bn :bnext<CR>
+
 " More than a now-arbitrary limit is bad, you know.
 set colorcolumn=81
 
