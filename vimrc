@@ -48,6 +48,8 @@ Bundle 'vim-scripts/Tabmerge'
 Bundle 'mattn/zencoding-vim'
 Bundle 'Raimondi/delimitMate'
 Bundle 'kshenoy/vim-signature'
+Bundle 'vim-scripts/a.vim'
+Bundle 'tpope/vim-fugitive'
 
 " Well this is nice.
 set rnu

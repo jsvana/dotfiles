@@ -8,6 +8,13 @@ function config_link {
   fi
 }
 
+function bin_link {
+	if [[ ! -e ~/bin/$1 ]]
+	then
+		ln -s `pwd`/$1 ~/bin/$1
+	fi	
+}
+
 function aur_build {
   pushd .
   cower -dd $1
@@ -16,32 +23,32 @@ function aur_build {
   popd
 }
 
-config_link vimrc
-config_link vim
-config_link oh-my-zsh
-config_link zshrc
-config_link zlogin
 config_link gitconfig
 config_link hgrc
-config_link tmux.conf
 config_link irssi
+config_link oh-my-zsh
+config_link tmux.conf
+config_link vim
+config_link vimrc
+config_link wgetrc
+config_link zlogin
+config_link zshrc
 
+mkdir ~/bin
 mkdir ~/go
 
 if [[ `uname -s` == "Darwin" ]]
 then
 	mkdir ~/Projects
 
+	bin_link show-hidden
+	bin_link hide-hidden
+
 	# Setup homebrew
-	ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
+	./brew-setup.sh
 
-	brew install wget
-	brew install git
-	brew install mercurial
-	brew install rbenv
-	brew install ruby-build
-
-	eval "$(rbenv init -)"
+ 	# OSX options setup
+	./osx-setup.sh
 elif [[ `uname -s` == "Linux" ]]
 then
 	if [ -e /etc/arch-release ]
