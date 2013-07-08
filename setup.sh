@@ -23,6 +23,7 @@ function aur_build {
   popd
 }
 
+config_link functions.zsh
 config_link gitconfig
 config_link hgrc
 config_link irssi
