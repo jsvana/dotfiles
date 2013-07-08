@@ -1,31 +1,41 @@
 set nocompatible
+
 set backspace=indent,eol,start
 
 set mouse=a
+
+" Blasted highlighting is so obnoxious.
 set nohlsearch
 
+" Dat color scheme
 color kib_darktango
 
+" Because auto and smart are no longer cool.
 set cindent
 
+" Two is good. We'll go with two.
 set tabstop=2
 set shiftwidth=2
 
+" Search is now interactive!
 set incsearch
 
+" Ew, folding
 set nofoldenable
 
+" Why show mode when we've got vim-airline?
 set noshowmode
 
+" Wrapping bad.
 set nowrap
 
-let mapleader = ","
-
+" Vundle is just so darn convenient.
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 Bundle 'gmarik/vundle'
 
+" Each and every one is a little bundle of joy.
 Bundle 'bling/vim-airline'
 Bundle 'bling/vim-bufferline'
 Bundle 'phleet/vim-arcanist'
@@ -35,15 +45,20 @@ Bundle 'Shougo/unite.vim'
 Bundle 'jeetsukumaran/vim-buffergator'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'vim-scripts/Tabmerge'
+Bundle 'mattn/zencoding-vim'
 
+" Well this is nice.
 set rnu
 
 set laststatus=2
 set encoding=utf-8
+
 syntax on
 
+" Let's show a little more when scrolling, eh?
 set scrolloff=5
 
+" Pasting is so much nicer when formatting is preserved.
 set pastetoggle=<F2>
 nmap <c-v> <F2>
 
@@ -63,10 +78,19 @@ nmap <S--> <c-w><S-->
 vmap <S-=> <c-w><S-=>
 vmap <S--> <c-w><S-->
 
+" Set leader
+let mapleader = ","
+
+" Easy tab creation
 nmap ,t :tabnew<CR>
 
-set colorcolumn=80
+" Easy splits
+nmap ,v :vsp<CR>
+nmap ,h :sp<CR>
 
+set colorcolumn=81
+
+" Show whitespace
 set listchars=tab:▸\ ,eol:¬
 nmap <leader>l :set list!<CR>
 
