@@ -34,6 +34,8 @@ brew install ack
 brew install node
 brew install pigz
 brew install rename
+brew install mutt
+brew install newsbeuter
 
 brew tap homebrew/versions
 brew install lua52

@@ -1,2 +1,4 @@
 vim/bundle
 hg-prompt/prompt.pyc
+newsbeuter/cache.*
+newsbeuter/history.*

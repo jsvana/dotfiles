@@ -10,6 +10,8 @@ source $ZSH/oh-my-zsh.sh
 
 alias gp="git pull --rebase"
 alias stt="subl ."
+alias m="mutt"
+alias nb="newsbeuter"
 
 # Because why would you use anything else?
 export EDITOR=/usr/bin/vim

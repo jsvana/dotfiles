@@ -84,7 +84,7 @@ function my_hg_prompt() {
 	echo " %{$fg_bold[blue]%}($branch$STATUS%{$fg_bold[blue]%})%{$reset_color%}"
 }
 
-PROMPT=$'$(ssh_connection)%{$fg_bold[green]%}%n@%m%{$reset_color%}$(my_git_prompt)$(my_hg_prompt) %{$fg[cyan]%}<%~>%{$reset_color%}\n%# '
+PROMPT=$'$(ssh_connection)%{$fg_bold[green]%}%n@%m%{$reset_color%}$(my_git_prompt)$(my_hg_prompt) %{$fg[magenta]%}<%~>%{$reset_color%}\n%# '
 RPROMPT='%{$fg[green]%}%D{%R}%{$reset_color%}'
 
 ZSH_THEME_PROMPT_RETURNCODE_PREFIX="%{$fg_bold[red]%}"

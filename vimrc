@@ -36,24 +36,24 @@ set ttyfast
 Bundle 'gmarik/vundle'
 
 " Each and every one is a little bundle of joy.
-Bundle 'bling/vim-airline'
+"Bundle 'bling/vim-airline'
+Bundle 'Lokaltog/powerline'
 Bundle 'bling/vim-bufferline'
 Bundle 'phleet/vim-arcanist'
 Bundle 'myusuf3/numbers.vim'
 Bundle 'leafgarland/typescript-vim'
-Bundle 'Shougo/unite.vim'
 Bundle 'jeetsukumaran/vim-buffergator'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'vim-scripts/Tabmerge'
 Bundle 'mattn/zencoding-vim'
 Bundle 'Raimondi/delimitMate'
 Bundle 'kshenoy/vim-signature'
 Bundle 'vim-scripts/a.vim'
-Bundle 'tpope/vim-fugitive'
-Bundle 'chriskempson/base16-vim'
 
 " Dat color scheme
-color kib_darktango
+"color kib_darktango
+set background=dark
+colorscheme vimbrant
+highlight ColorColumn ctermbg=7
+highlight ColorColumn guibg=Gray
 
 " Well this is nice.
 set rnu
@@ -114,18 +114,3 @@ set listchars=tab:▸\ ,eol:¬
 nmap <leader>l :set list!<CR>
 
 set ttimeout ttimeoutlen=0
-
-" Unite
-let g:unite_source_history_yank_enable = 1
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
-nnoremap <leader>f :Unite -no-split -buffer-name=files   -start-insert file<cr>
-
-" Custom mappings for the unite buffer
-autocmd FileType unite call s:unite_settings()
-function! s:unite_settings()
-  " Play nice with supertab
-  let b:SuperTabDisabled=1
-  " Enable navigation with control-j and control-k in insert mode
-  imap <buffer> <C-j>   <Plug>(unite_select_next_line)
-  imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
-endfunction
