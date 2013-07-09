@@ -27,6 +27,8 @@ config_link functions.zsh
 config_link gitconfig
 config_link hgrc
 config_link irssi
+config_link mutt
+config_link muttrc
 config_link newsbeuter
 config_link oh-my-zsh
 config_link tmux.conf
