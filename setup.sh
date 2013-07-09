@@ -57,7 +57,7 @@ elif [[ `uname -s` == "Linux" ]]
 then
 	if [ -e /etc/arch-release ]
 	then
-		sudo pacman -S wget git mercurial
+		sudo pacman -S wget git mercurial unzip
 		sudo -k
 
 		read -p "Setup sshd? [Y/n]" choice
