@@ -1,4 +1,7 @@
-vim/bundle
 hg-prompt/prompt.pyc
+mutt/user
+mutt/cache
+mutt/certificates
 newsbeuter/cache.*
 newsbeuter/history.*
+vim/bundle
