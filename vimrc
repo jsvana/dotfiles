@@ -36,8 +36,7 @@ set ttyfast
 Bundle 'gmarik/vundle'
 
 " Each and every one is a little bundle of joy.
-"Bundle 'bling/vim-airline'
-Bundle 'Lokaltog/powerline'
+Bundle 'bling/vim-airline'
 Bundle 'bling/vim-bufferline'
 Bundle 'phleet/vim-arcanist'
 Bundle 'myusuf3/numbers.vim'
