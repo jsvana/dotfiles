@@ -1,9 +1,5 @@
 servers = (
-  {
-		address = "lug.mtu.edu";
-		chatnet = "MTU";
-		autoconnect = "yes";
-	},
+  { address = "lug.mtu.edu"; chatnet = "MTU"; autoconnect = "yes"; },
   {
     address = "irc.freenode.net";
     chatnet = "Freenode";
@@ -12,14 +8,14 @@ servers = (
     ssl_verify = "no";
     autoconnect = "yes";
   },
-	{
-		address = "irc.hackedserver.net";
-		chatnet = "HackedServer";
-		port = "9999";
-		use_ssl = "yes";
-		ssl_verify = "no";
-		audoconnect = "yes";
-	},
+  {
+    address = "irc.hackedserver.net";
+    chatnet = "HackedServer";
+    port = "9999";
+    use_ssl = "yes";
+    ssl_verify = "no";
+    audoconnect = "yes";
+  }
 );
 chatnets = {
   Freenode = {
@@ -27,15 +23,12 @@ chatnets = {
     nick = "jsvana";
     autosendcmd = "/msg nickserv identify linked ;wait 2000";
   };
-  MTU = {
-		type = "IRC";
-		nick = "jsvana";
-	};
-	HackedServer = {
-		type = "IRC";
-		nick = "jsvana";
-		autosendcmd = "/msg nickserv identify linked ;wait 2000";
-	};
+  MTU = { type = "IRC"; nick = "jsvana"; };
+  HackedServer = {
+    type = "IRC";
+    nick = "jsvana";
+    autosendcmd = "/msg nickserv identify linked ;wait 2000";
+  };
 };
 
 # Channels I hang out in a lot.
@@ -43,7 +36,7 @@ channels = (
   { name = "#encoded"; chatnet = "Freenode"; autojoin = "yes"; },
   { name = "#encoded-dev"; chatnet = "Freenode"; autojoin = "yes"; },
   { name = "#mtu"; chatnet = "MTU"; autojoin = "yes"; },
-	{ name = "#main"; chatnet = "HackedServer"; autojoin = "yes"; },
+  { name = "#main"; chatnet = "HackedServer"; autojoin = "yes"; }
 );
 
 aliases = {
@@ -99,4 +92,5 @@ aliases = {
 settings = {
   core = { real_name = "jsvana"; user_name = "jsvana"; nick = "jsvana"; };
   "fe-text" = { actlist_sort = "refnum"; };
+  "fe-common/core" = { theme = "elite"; };
 };
