@@ -3,6 +3,8 @@ browser open
 auto-reload yes
 reload-time 30
 
+bookmark-cmd "pocket-cli -a %u"
+
 unbind-key k
 bind-key k up
 unbind-key j

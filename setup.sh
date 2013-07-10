@@ -38,6 +38,8 @@ config_link wgetrc
 config_link zlogin
 config_link zshrc
 
+bin_link pocket-cli
+
 mkdir ~/bin
 mkdir ~/go
 
