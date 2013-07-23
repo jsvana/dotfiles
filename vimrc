@@ -7,9 +7,6 @@ set mouse=a
 " Blasted highlighting is so obnoxious.
 set nohlsearch
 
-" Because auto and smart are no longer cool.
-set cindent
-
 " Two is good. We'll go with two.
 set tabstop=2
 set shiftwidth=2
@@ -25,6 +22,8 @@ set noshowmode
 
 " Wrapping bad.
 set nowrap
+
+set rtp+=/usr/local/Cellar/go/1.1.1/misc/vim
 
 " Vundle is just so darn convenient.
 set rtp+=~/.vim/bundle/vundle/
@@ -60,6 +59,7 @@ set rnu
 set laststatus=2
 set encoding=utf-8
 
+filetype plugin indent on
 syntax on
 
 " Let's show a little more when scrolling, eh?
@@ -104,6 +104,9 @@ nmap <leader>a :A<CR>
 
 " Quick buffer switching
 nmap <leader>bn :bnext<CR>
+
+" Boo gofmt
+autocmd BufWritePre *.go Fmt
 
 " More than a now-arbitrary limit is bad, you know.
 set colorcolumn=81
