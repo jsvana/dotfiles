@@ -12,7 +12,7 @@ function bin_link {
 	if [[ ! -e ~/bin/$1 ]]
 	then
 		ln -s `pwd`/$1 ~/bin/$1
-	fi	
+	fi
 }
 
 function aur_build {
@@ -23,7 +23,6 @@ function aur_build {
   popd
 }
 
-config_link functions.zsh
 config_link gitconfig
 config_link hgrc
 config_link irssi
@@ -35,8 +34,10 @@ config_link tmux.conf
 config_link vim
 config_link vimrc
 config_link wgetrc
+
 config_link zlogin
 config_link zshrc
+config_link zsh
 
 bin_link pocket-cli
 
@@ -67,7 +68,7 @@ then
 				[Nn]*)
 					echo "Skipping sshd"
 					;;
-				*) 
+				*)
 					# Setup SSH
 					sudo $EDITOR /etc/ssh/sshd_config
 					sudo systemctl restart sshd
@@ -79,7 +80,7 @@ then
 				[Nn]*)
 					echo "Skipping iptables"
 					;;
-				*) 
+				*)
 					# iptables
 					./iptables.setup
 					;;
