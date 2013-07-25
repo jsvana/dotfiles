@@ -108,6 +108,10 @@ nmap <leader>bn :bnext<CR>
 " Boo gofmt
 autocmd BufWritePre *.go Fmt
 
+" Dat whitespace
+autocmd BufWritePre * :%s/\s\+$//e
+autocmd BufWritePre * :%s/\n\{3,}/\r\r/e
+
 " More than a now-arbitrary limit is bad, you know.
 set colorcolumn=81
 
