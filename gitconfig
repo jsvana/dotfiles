@@ -6,14 +6,14 @@
 [push]
 	default = simple
 [alias]
-  st = status
-  c = commit
+	st = status
+	c = commit
 	ca = commit -a
 	cm = commit -m
 	cam = commit -a -m
-  br = branch
-  co = checkout
-  df = diff
+	br = branch
+	co = checkout
+	df = diff
 	p = push
 	g = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 	h = !git --no-pager log origin/master..HEAD --abbrev-commit --pretty=oneline
