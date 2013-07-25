@@ -4,8 +4,8 @@ set backspace=indent,eol,start
 
 set mouse=a
 
-" Blasted highlighting is so obnoxious.
-set nohlsearch
+" Because auto and smart are no longer cool.
+set cindent
 
 " Two is good. We'll go with two.
 set tabstop=2
@@ -101,6 +101,10 @@ nmap <TAB> <c-y>,
 
 " Easy .c(pp)/.h switching
 nmap <leader>a :A<CR>
+
+" Toggle hlsearch
+let hlstate=0
+nmap <leader>s :if (hlstate == 0) \| nohlsearch \| else \| set hlsearch \| endif \| let hlstate=1-hlstate<CR>
 
 " Quick buffer switching
 nmap <leader>bn :bnext<CR>
