@@ -9,5 +9,7 @@ vim/bundle
 
 ssh/id_rsa*
 ssh/known_hosts
+ssh/authorized_keys
+ssh/psg
 
 .DS_Store

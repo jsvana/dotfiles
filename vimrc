@@ -47,6 +47,7 @@ Bundle 'kshenoy/vim-signature'
 Bundle 'vim-scripts/a.vim'
 Bundle 'chreekat/vim-paren-crosshairs'
 Bundle 'Valloric/YouCompleteMe'
+Bundle 'scrooloose/syntastic'
 
 " Dat color scheme
 "color kib_darktango
