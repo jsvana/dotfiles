@@ -45,6 +45,7 @@ Bundle 'mattn/zencoding-vim'
 Bundle 'Raimondi/delimitMate'
 Bundle 'kshenoy/vim-signature'
 Bundle 'vim-scripts/a.vim'
+Bundle 'chreekat/vim-paren-crosshairs'
 
 " Dat color scheme
 "color kib_darktango

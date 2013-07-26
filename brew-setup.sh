@@ -44,16 +44,16 @@ brew install lua52
 brew tap phinze/homebrew-cask
 brew install brew-cask
 
-function installcask() {
+function cask_install() {
 	brew cask install "${@}" 2> /dev/null
 }
 
-installcask dropbox
-installcask google-chrome
-installcask google-chrome-canary
-installcask iterm2
-installcask sublime-text
-installcask vlc
+cask_install dropbox
+cask_install firefox
+cask_install iterm2
+cask_install sublime-text
+cask_install vlc
+cask_install slate
 
 # Remove outdated versions from the cellar
 brew cleanup
