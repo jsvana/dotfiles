@@ -1,0 +1,15 @@
+Host gannicus
+	HostName psg.mtu.edu
+	Port 49931
+
+Host sekhmet
+	HostName sekhmet.lug.mtu.edu
+
+Host hephaestus
+	HostName hephaestus.jsvana.io
+	Port 49621
+
+Host *
+  SendEnv LANG LC_CTYPE LC_NUMERIC LC_TIME LC_COLLATE LC_MONETARY LC_MESSAGES
+	SendEnv LC_PAPER LC_NAME LC_ADDRESS LC_TELEPHONE LC_MEASUREMENT
+	SendEnv LC_IDENTIFICATION LC_ALL LANGUAGE

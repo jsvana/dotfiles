@@ -100,6 +100,17 @@ then
 				;;
 		esac
 
+		read -p "Setup misc? [Y/n]" choice
+		case $choice in
+			[Nn]*)
+				echo "Skipping misc"
+				;;
+			*)
+				# misc
+				./misc-linux-setup.sh
+				;;
+		esac
+
 		mkdir ~/projects
 	fi
 fi
