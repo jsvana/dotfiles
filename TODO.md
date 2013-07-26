@@ -1,2 +1,2 @@
 # TODO
-- Read up on Slate
+- Finish Slate config

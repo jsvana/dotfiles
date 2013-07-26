@@ -34,5 +34,6 @@ var main = S.lay('main', {
 S.def(1, main);
 
 S.bnda({
-	'esc:cmd': S.op('hint')
+	'esc:cmd': S.op('hint'),
+	'esc:ctrl': S.op('grid')
 });

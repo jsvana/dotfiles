@@ -48,12 +48,17 @@ function cask_install() {
 	brew cask install "${@}" 2> /dev/null
 }
 
+cask_install alfred
 cask_install dropbox
 cask_install firefox
 cask_install iterm2
+cask_install rdio
+cask_install slate
 cask_install sublime-text
 cask_install vlc
-cask_install slate
+
+cask_install keyremap4macbook
+cask_install pc-keyboardhack
 
 # Remove outdated versions from the cellar
 brew cleanup
