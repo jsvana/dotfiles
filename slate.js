@@ -1,9 +1,9 @@
 S.src('.configs/reslate/reslate.js');
 
-slate.alias('hyper', 'ctrl;alt;cmd');
+S.alias('hyper', 'ctrl;alt;cmd');
 
 // begin config
-slate.configAll({
+S.configAll({
 	defaultToCurrentScreen: true,
 	nudgePercentOf: 'screenSize',
 	resizePercentOf: 'screenSize',
@@ -21,7 +21,7 @@ slate.configAll({
 });
 
 // bindings
-slate.bindAll({
+S.bindAll({
 	hyper: {
 		shift: {
 			// edges
