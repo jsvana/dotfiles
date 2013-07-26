@@ -61,8 +61,7 @@ elif [[ `uname -s` == "Linux" ]]
 then
 	if [ -e /etc/arch-release ]
 	then
-		sudo pacman -S wget git mercurial unzip
-		sudo -k
+		sudo pacman -S wget git mercurial unzip mosh
 
 		read -p "Setup sshd? [Y/n]" choice
 		case $choice in
@@ -110,6 +109,8 @@ then
 				./misc-linux-setup.sh
 				;;
 		esac
+
+		sudo -k
 
 		mkdir ~/projects
 	fi
