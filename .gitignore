@@ -1,7 +1,13 @@
-hg-prompt/prompt.pyc
 mutt/user
 mutt/cache
 mutt/certificates
+
 newsbeuter/cache.*
 newsbeuter/history.*
+
 vim/bundle
+
+ssh/id_rsa*
+ssh/known_hosts
+
+.DS_Store
