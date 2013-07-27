@@ -23,23 +23,7 @@ function aur_build {
   popd
 }
 
-config_link gitconfig
-config_link hgrc
-
-config_link irssi
-config_link mutt
-config_link muttrc
-config_link newsbeuter
-config_link slate
-config_link ssh
-config_link tmux.conf
-config_link vim
-config_link vimrc
-config_link wgetrc
-
-config_link zlogin
-config_link zsh
-config_link zshrc
+./config-setup.sh
 
 bin_link pocket-cli
 
@@ -121,6 +105,5 @@ if $(vim --version | grep '7.3' &> /dev/null)
 then
 	vim +BundleInstall +qall
 else
-then
 	echo "vim is out of date, you're gonna have a bad time"
 fi

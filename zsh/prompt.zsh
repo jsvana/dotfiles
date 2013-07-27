@@ -1,4 +1,5 @@
 . ~/.zsh/colors.zsh
+. ~/.zsh/functions.zsh
 
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' stagedstr "${fg_blue}?"
@@ -25,7 +26,7 @@ ssh_conn() {
 
 setopt prompt_subst
 
-PROMPT=$'$(ssh_conn)${fg_lcyan}%n${at_normal}${fg_lgray}@${at_bold}${fg_brown}%m ${fg_blue}%~${vcs_info_msg_0_}\n%(?/${at_normal}/${fg_red})%%${at_normal} '
+PROMPT=$'$(ssh_conn)${fg_lcyan}%n${at_normal}${fg_lgray}@${at_bold}${fg_brown}%m ${fg_blue}%~${vcs_info_msg_0_}$(battery)\n%(?/${at_normal}/${fg_red})%%${at_normal} '
 RPROMPT="${fg_dgray}%T${at_normal}"
 
 INSERT_PROMPT="gray"

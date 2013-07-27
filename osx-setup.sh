@@ -516,6 +516,9 @@ defaults write com.apple.appstore ShowDebugMenu -bool true
 defaults write com.google.Chrome ExtensionInstallSources -array "https://*.github.com/*" "http://userscripts.org/*"
 defaults write com.google.Chrome.canary ExtensionInstallSources -array "https://*.github.com/*" "http://userscripts.org/*"
 
+defaults write com.apple.Preview NSQuitAlwaysKeepsWindows -bool false
+defaults write com.apple.QuickTimePlayerX NSQuitAlwaysKeepsWindows -bool false
+
 ###############################################################################
 # Kill affected applications                                                  #
 ###############################################################################
