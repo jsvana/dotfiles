@@ -1,6 +1,9 @@
 if [[ `uname -s` == 'Linux' ]]
 then
 	alias ls="ls --color=auto"
+elif [[ `uname -s` == 'Darwin' ]]
+then
+	alias ls="ls -G"
 fi
 
 alias vi="vim"
