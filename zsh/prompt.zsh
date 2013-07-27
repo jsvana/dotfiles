@@ -26,7 +26,7 @@ ssh_conn() {
 
 setopt prompt_subst
 
-PROMPT=$'$(ssh_conn)${fg_lcyan}%n${at_normal}${fg_lgray}@${at_bold}${fg_brown}%m ${fg_blue}%~${vcs_info_msg_0_}$(battery)\n%(?/${at_normal}/${fg_red})%%${at_normal} '
+PROMPT=$'$(ssh_conn)${fg_lcyan}%n${at_normal}${fg_lgray}@${at_bold}${fg_brown}%m ${fg_blue}%~${vcs_info_msg_0_} ${fg_green}[$(battery)${fg_green}]\n%(?/${at_normal}/${fg_red})%%${at_normal} '
 RPROMPT="${fg_dgray}%T${at_normal}"
 
 INSERT_PROMPT="gray"
