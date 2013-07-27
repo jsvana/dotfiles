@@ -1,4 +1,8 @@
-alias ls="ls --color=auto"
+if [[ `uname -s` == 'Linux' ]]
+then
+	alias ls="ls --color=auto"
+fi
+
 alias vi="vim"
 
 alias gp="git pull --rebase"

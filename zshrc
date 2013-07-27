@@ -16,7 +16,7 @@ export PROJECTS="$HOME/projects"
 if [[ `uname -s` == "Darwin" ]]
 then
 	# brew coreutils
-	export PATH=$(brew --prefix coreutils)/libexec/gnubin:$PATH
+	export PATH=/usr/local/bin:$(brew --prefix coreutils)/libexec/gnubin:$PATH
 	export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 	export PROJECTS="$HOME/Projects"
 fi

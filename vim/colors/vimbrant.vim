@@ -4,10 +4,10 @@
 " Description:  A vibrant light-on-dark colorscheme with support
 " for GUI, 256-color and 16-color terminals and optional transparency
 "
-" Based on the molokai theme by Tomas Restrepo, which in turn 
+" Based on the molokai theme by Tomas Restrepo, which in turn
 " is based on the monokai theme for textmate by Wimer Hazenberg
-" and its darker variant by Hamish Stuart Macpherson.  A big 
-" thanks to these individuals for making what are some of the 
+" and its darker variant by Hamish Stuart Macpherson.  A big
+" thanks to these individuals for making what are some of the
 " best color schemes ever.
 
 " For optimal 16-color experience, add the following to ~/.bashrc:
@@ -237,7 +237,7 @@ elseif &t_Co > 255
     hi DiffChange      ctermfg=181 ctermbg=239
     hi DiffDelete      ctermfg=162 ctermbg=53
     hi DiffText                    ctermbg=102   cterm=bold
-    
+
     hi Directory       ctermfg=118               cterm=bold
     hi Error           ctermfg=219 ctermbg=89
     hi ErrorMsg        ctermfg=199 ctermbg=16    cterm=bold
@@ -249,17 +249,17 @@ elseif &t_Co > 255
     hi Identifier      ctermfg=208
     hi Ignore          ctermfg=244 ctermbg=232
     hi IncSearch       ctermfg=193 ctermbg=16
-    
+
     hi Keyword         ctermfg=161               cterm=bold
     hi Label           ctermfg=229               cterm=none
     hi Macro           ctermfg=193
     hi SpecialKey      ctermfg=81
-    
+
     " mail-related syntaxes
-    "hi mailHeaderEmail links to mailEmail 
-    "hi mailURL         links to String 
-    "hi mailEmail       links to Special 
-    "hi mailSignature   links to PreProc 
+    "hi mailHeaderEmail links to mailEmail
+    "hi mailURL         links to String
+    "hi mailEmail       links to Special
+    "hi mailSignature   links to PreProc
     hi mailSubject     ctermfg=186
     hi mailHeaderKey   ctermfg=186
     hi mailHeader      ctermfg=186
@@ -291,7 +291,7 @@ elseif &t_Co > 255
     hi SignColumn      ctermfg=118 ctermbg=235
     hi SpecialChar     ctermfg=161               cterm=bold
     hi SpecialComment  ctermfg=245               cterm=bold
-    hi Special         ctermfg=81 
+    hi Special         ctermfg=81
     hi SpecialKey      ctermfg=245
 
     hi Statement       ctermfg=161               cterm=bold
@@ -312,7 +312,7 @@ elseif &t_Co > 255
     hi Visual          ctermfg=33  ctermbg=17
     hi WarningMsg      ctermfg=231 ctermbg=238   cterm=bold
     hi WildMenu        ctermfg=81  ctermbg=16
-    
+
     hi Normal          ctermfg=248 ctermbg=0
     hi Comment         ctermfg=240
     hi CursorLine                  ctermbg=234   cterm=none
@@ -409,19 +409,19 @@ elseif &t_Co < 256
 
     " 16/88-color scheme
 
-    hi Boolean         ctermfg=5  cterm=bold 
+    hi Boolean         ctermfg=5  cterm=bold
     hi Character       ctermfg=3  cterm=bold
-    hi Number          ctermfg=5  cterm=bold 
+    hi Number          ctermfg=5  cterm=bold
     hi String          ctermfg=3  cterm=bold
     hi Conditional     ctermfg=1
-    hi Constant        ctermfg=5  cterm=bold 
+    hi Constant        ctermfg=5  cterm=bold
     hi Cursor          ctermfg=0  ctermbg=7
-    hi Debug           ctermfg=5  cterm=bold 
+    hi Debug           ctermfg=5  cterm=bold
     hi Define          ctermfg=4
     hi Delimiter       ctermfg=0  cterm=bold
 
     hi DiffAdd                    ctermbg=4
-    hi DiffChange      ctermfg=5  ctermbg=8  cterm=bold 
+    hi DiffChange      ctermfg=5  ctermbg=8  cterm=bold
     hi DiffDelete      ctermfg=1   ctermbg=5
     hi DiffText                    ctermbg=13
 
@@ -429,32 +429,32 @@ elseif &t_Co < 256
     hi Error           ctermfg=1
     hi ErrorMsg        ctermfg=1
     hi Exception       ctermfg=2
-    hi Float           ctermfg=5  cterm=bold 
-    hi FoldColumn      ctermfg=5  cterm=bold 
-    hi Folded          ctermfg=5  cterm=bold 
-    hi Function        ctermfg=2  
+    hi Float           ctermfg=5  cterm=bold
+    hi FoldColumn      ctermfg=5  cterm=bold
+    hi Folded          ctermfg=5  cterm=bold
+    hi Function        ctermfg=2
     hi Identifier      ctermfg=3
     hi Ignore          ctermfg=7
-    hi IncSearch       ctermfg=2  cterm=bold 
+    hi IncSearch       ctermfg=2  cterm=bold
 
     hi Keyword         ctermfg=1
-    hi Label           ctermfg=3  cterm=bold 
-    hi Macro           ctermfg=2  cterm=bold 
+    hi Label           ctermfg=3  cterm=bold
+    hi Macro           ctermfg=2  cterm=bold
     hi SpecialKey      ctermfg=4
 
-    hi mailSubject     ctermfg=3  cterm=bold 
-    hi mailHeaderKey   ctermfg=3  cterm=bold 
-    hi mailHeader      ctermfg=3  cterm=bold 
+    hi mailSubject     ctermfg=3  cterm=bold
+    hi mailHeaderKey   ctermfg=3  cterm=bold
+    hi mailHeader      ctermfg=3  cterm=bold
     hi mailQuoted1     ctermfg=6
-    hi mailQuoted2     ctermfg=6  cterm=bold 
+    hi mailQuoted2     ctermfg=6  cterm=bold
     hi mailQuoted3     ctermfg=2
     hi mailQuoted4     ctermfg=3
     hi mailQuoted5     ctermfg=1
     hi mailQuoted6     ctermfg=5
 
     hi MatchParen      ctermfg=0  ctermbg=3
-    hi ModeMsg         ctermfg=3  cterm=bold  
-    hi MoreMsg         ctermfg=3  cterm=bold  
+    hi ModeMsg         ctermfg=3  cterm=bold
+    hi MoreMsg         ctermfg=3  cterm=bold
     hi Operator        ctermfg=1
 
     " complete menu
@@ -464,18 +464,18 @@ elseif &t_Co < 256
     hi PmenuThumb      ctermfg=4
 
     hi PreCondit       ctermfg=2
-    hi PreProc         ctermfg=2  
+    hi PreProc         ctermfg=2
     hi Question        ctermfg=4
     hi Repeat          ctermfg=1
-    hi Search          ctermfg=7  ctermbg=1     cterm=bold 
+    hi Search          ctermfg=7  ctermbg=1     cterm=bold
     hi shVariable      ctermfg=3
 
     " marks column
     hi SignColumn      ctermfg=2  ctermbg=8
     hi SpecialChar     ctermfg=1
     hi SpecialComment  ctermfg=7
-    hi Special         ctermfg=4  
-    hi SpecialKey      ctermfg=7  
+    hi Special         ctermfg=4
+    hi SpecialKey      ctermfg=7
 
     if has("spell")
         hi clear SpellBad
@@ -492,10 +492,10 @@ elseif &t_Co < 256
     hi StatusLine      ctermfg=7  ctermbg=6     cterm=bold
     hi StatusLineNC    ctermfg=7                cterm=bold
     hi StorageClass    ctermfg=3
-    hi Structure       ctermfg=4 
-    hi Tag             ctermfg=1  
+    hi Structure       ctermfg=4
+    hi Tag             ctermfg=1
     hi Title           ctermfg=3
-    hi Todo            ctermfg=3  cterm=bold 
+    hi Todo            ctermfg=3  cterm=bold
 
     hi Typedef         ctermfg=4
     hi Type            ctermfg=4                 cterm=none
@@ -528,4 +528,3 @@ elseif &t_Co < 256
     hi outlTags        ctermfg=1                cterm=bold
 
 endif
- 

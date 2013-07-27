@@ -31,6 +31,7 @@ config_link mutt
 config_link muttrc
 config_link newsbeuter
 config_link slate
+config_link ssh
 config_link tmux.conf
 config_link vim
 config_link vimrc

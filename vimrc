@@ -46,8 +46,8 @@ Bundle 'Raimondi/delimitMate'
 Bundle 'kshenoy/vim-signature'
 Bundle 'vim-scripts/a.vim'
 Bundle 'chreekat/vim-paren-crosshairs'
-Bundle 'Valloric/YouCompleteMe'
 Bundle 'scrooloose/syntastic'
+Bundle 'sjl/vitality.vim'
 
 " Dat color scheme
 "color kib_darktango
@@ -127,3 +127,22 @@ set listchars=tab:▸\ ,eol:¬
 nmap <leader>l :set list!<CR>
 
 set ttimeout ttimeoutlen=0
+
+" Remember last location in file
+set viminfo='10,\"100,:20,%,n~/.viminfo'
+
+autocmd BufReadPost *
+     \ if line("'\"") > 0 && line("'\"") <= line("$") |
+     \   exe "normal! g`\"" |
+     \ endif
+
+" Set up cursor on insert
+if exists('$ITERM_PROFILE')
+  if exists('$TMUX')
+    let &t_SI = "\<Esc>[3 q"
+    let &t_EI = "\<Esc>[0 q"
+  else
+    let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+    let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+  endif
+endif
