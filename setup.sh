@@ -1,20 +1,6 @@
 #!/bin/bash
 # Credit to @belak for the base of this
 
-function config_link {
-  if [[ ! -e ~/.$1 ]]
-  then
-    ln -s `pwd`/$1 ~/.$1
-  fi
-}
-
-function bin_link {
-	if [[ ! -e ~/bin/$1 ]]
-	then
-		ln -s `pwd`/$1 ~/bin/$1
-	fi
-}
-
 function aur_build {
   pushd .
   cower -dd $1
@@ -24,8 +10,6 @@ function aur_build {
 }
 
 ./config-setup.sh
-
-bin_link pocket-cli
 
 mkdir ~/bin
 mkdir ~/go
