@@ -9,33 +9,45 @@ zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{11}%r'
 zstyle ':vcs_info:*' enable git svn
 
 precmd() {
-	if [[ -z $(git ls-files --other --exclude-standard 2> /dev/null) ]] {
+	if [[ -z $(git ls-files --other --exclude-standard 2> /dev/null) ]]
+	then
 		zstyle ':vcs_info:*' formats "${at_normal} ${fg_dgray}(%b%c%u${fg_dgray})${at_normal}"
-  } else {
+	else
 		zstyle ':vcs_info:*' formats "${at_normal} ${fg_dgray}(%b%c%u${fg_red}!${fg_dgray})${at_normal}"
-  }
+	fi
 
 	vcs_info
 }
 
 ssh_conn() {
-	if [[ -n $SSH_CONNECTION ]]; then
+	if [[ -n $SSH_CONNECTION ]]
+	then
 		echo "${fg_red}(ssh)${at_normal} "
   fi
 }
 
+battery_prompt() {
+	BATTERY=$(battery)
+	if [[ -n $BATTERY ]]
+	then
+		echo "${fg_green}[$BATTERY${fg_green}]"
+	fi
+}
+
 setopt prompt_subst
 
-PROMPT=$'$(ssh_conn)${fg_lcyan}%n${at_normal}${fg_lgray}@${at_bold}${fg_brown}%m ${fg_blue}%~${vcs_info_msg_0_} ${fg_green}[$(battery)${fg_green}]\n%(?/${at_normal}/${fg_red})%%${at_normal} '
+PROMPT=$'$(ssh_conn)${fg_lcyan}%n${at_normal}${fg_lgray}@${at_bold}${fg_brown}%m ${fg_blue}%~${vcs_info_msg_0_}$(battery_prompt)\n%(?/${at_normal}/${fg_red})%%${at_normal} '
 RPROMPT="${fg_dgray}%T${at_normal}"
 
 INSERT_PROMPT="gray"
 COMMAND_PROMPT="red"
 
 set_prompt_color() {
-  if [[ $TERM = "linux" ]]; then
+  if [[ $TERM = "linux" ]]
+	then
     # Nothing
-  elif [[ $TMUX != '' ]]; then
+  elif [[ $TMUX != '' ]]
+	then
 		printf '\033Ptmux;\033\033]12;%b\007\033\\' "$1"
   else
 		echo -ne "\033]12;$1\007"
@@ -44,7 +56,8 @@ set_prompt_color() {
 
 # Change cursor color basing on vi mode
 zle-keymap-select() {
-  if [ $KEYMAP = vicmd ]; then
+  if [ $KEYMAP = vicmd ]
+	then
 		set_prompt_color $COMMAND_PROMPT
   else
 		set_prompt_color $INSERT_PROMPT
