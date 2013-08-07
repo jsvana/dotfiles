@@ -30,7 +30,7 @@ battery_prompt() {
 	BATTERY=$(battery)
 	if [[ -n $BATTERY ]]
 	then
-		echo "${fg_green}[$BATTERY${fg_green}]"
+		echo " ${fg_green}[$BATTERY${fg_green}]"
 	fi
 }
 
