@@ -4,8 +4,7 @@ set backspace=indent,eol,start
 
 set mouse=a
 
-" Because auto and smart are no longer cool.
-set cindent
+set autoindent
 
 " Two is good. We'll go with two.
 set tabstop=2
@@ -48,6 +47,8 @@ Bundle 'vim-scripts/a.vim'
 Bundle 'chreekat/vim-paren-crosshairs'
 Bundle 'scrooloose/syntastic'
 Bundle 'sjl/vitality.vim'
+Bundle 'scrooloose/nerdtree'
+Bundle 'https://github.com/rosenfeld/conque-term'
 
 " Dat color scheme
 "color kib_darktango
@@ -112,6 +113,15 @@ nmap <leader>s :if (hlstate == 0) \| nohlsearch \| else \| set hlsearch \| endif
 " Quick buffer switching
 nmap <leader>bn :bnext<CR>
 
+" brief crosshairs on the cursor
+function! CursorPing()
+	set cursorline cursorcolumn
+	redraw
+	sleep 100m
+	set nocursorline nocursorcolumn
+endfunction
+nmap <Leader><Leader> :call CursorPing()<CR>
+
 " Boo gofmt
 autocmd BufWritePre *.go Fmt
 
@@ -135,6 +145,10 @@ autocmd BufReadPost *
      \ if line("'\"") > 0 && line("'\"") <= line("$") |
      \   exe "normal! g`\"" |
      \ endif
+
+" NERDTree stuff
+map <C-n> :NERDTreeToggle<CR>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 " Set up cursor on insert
 if exists('$ITERM_PROFILE')
