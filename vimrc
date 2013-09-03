@@ -49,6 +49,11 @@ Bundle 'scrooloose/syntastic'
 Bundle 'sjl/vitality.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'https://github.com/rosenfeld/conque-term'
+Bundle 'markcornick/vim-vagrant'
+Bundle 'tpope/vim-surround'
+Bundle 'juvenn/mustache.vim'
+Bundle 'rizzatti/funcoo.vim'
+Bundle 'rizzatti/dash.vim'
 
 " Dat color scheme
 "color kib_darktango
@@ -90,6 +95,10 @@ nmap <S--> <c-w><S-->
 vmap <S-=> <c-w><S-=>
 vmap <S--> <c-w><S-->
 
+"""""""""""
+""" Leaders
+"""""""""""
+
 " Set leader
 let mapleader = ","
 
@@ -113,7 +122,13 @@ nmap <leader>s :if (hlstate == 0) \| nohlsearch \| else \| set hlsearch \| endif
 " Quick buffer switching
 nmap <leader>bn :bnext<CR>
 
-" brief crosshairs on the cursor
+" Dash search
+nmap <silent> <leader>d <Plug>DashSearch
+
+" Reload vimrc
+map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
+
+" Brief crosshairs on the cursor
 function! CursorPing()
 	set cursorline cursorcolumn
 	redraw
@@ -159,4 +174,9 @@ if exists('$ITERM_PROFILE')
     let &t_SI = "\<Esc>]50;CursorShape=1\x7"
     let &t_EI = "\<Esc>]50;CursorShape=0\x7"
   endif
+endif
+
+" Machine-specific configs
+if filereadable(expand("~/.vimrc.local"))
+  source ~/.vimrc.local
 endif

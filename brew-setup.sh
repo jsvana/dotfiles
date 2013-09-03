@@ -36,6 +36,10 @@ brew install pigz
 brew install rename
 brew install mutt
 brew install newsbeuter
+brew install zsh-completions
+
+brew install z
+touch ~/.z
 
 brew tap homebrew/versions
 brew install lua52

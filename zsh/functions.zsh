@@ -55,3 +55,8 @@ function battery() {
 		fi
 	fi
 }
+
+if [[ -e ~/.zsh/functions.local ]]
+then
+	. ~/.zsh/functions.local
+fi

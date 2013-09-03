@@ -9,6 +9,9 @@ Host hephaestus
 	HostName hephaestus.jsvana.io
 	Port 49621
 
+Host lcs
+	HostName 54.213.61.253
+
 Host *
   SendEnv LANG LC_CTYPE LC_NUMERIC LC_TIME LC_COLLATE LC_MONETARY LC_MESSAGES
 	SendEnv LC_PAPER LC_NAME LC_ADDRESS LC_TELEPHONE LC_MEASUREMENT

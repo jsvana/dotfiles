@@ -112,11 +112,12 @@ S.bindAll({
 		'2': $('toss', '1', 'resize'),
 		'3': $('toss', '2', 'resize'),
 		// direct focus
-		w: $.focus('Firefox'),
-		s: $.focus('Sublime Text'),
+		w: $.focus('Nightly'),
 		t: $.focus('iTerm'),
 		f: $.focus('Finder'),
 		r: $.focus('Rdio'),
+		e: $.focus('Mail'),
+		c: $.focus('Calendar'),
 		// utility functions
 		f1: 'relaunch',
 		z: 'undo',

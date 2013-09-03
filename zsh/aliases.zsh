@@ -14,4 +14,11 @@ alias m="mutt"
 alias nb="newsbeuter"
 alias :wq="exit"
 
+alias v="vagrant"
+alias vl="vagrant list"
+alias vssh="vagrant ssh"
+alias vup="vagrant up"
+alias vdown="vagrant halt"
+alias vp="vagrant provision"
+
 alias vinstall="vim +BundleInstall +qall"
