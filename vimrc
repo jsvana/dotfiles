@@ -48,12 +48,12 @@ Bundle 'chreekat/vim-paren-crosshairs'
 Bundle 'scrooloose/syntastic'
 Bundle 'sjl/vitality.vim'
 Bundle 'scrooloose/nerdtree'
-Bundle 'https://github.com/rosenfeld/conque-term'
 Bundle 'markcornick/vim-vagrant'
 Bundle 'tpope/vim-surround'
 Bundle 'juvenn/mustache.vim'
 Bundle 'rizzatti/funcoo.vim'
 Bundle 'rizzatti/dash.vim'
+Bundle 'rosenfeld/conque-term'
 
 " Dat color scheme
 "color kib_darktango
