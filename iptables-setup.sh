@@ -14,6 +14,7 @@ sudo iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
 sudo iptables -A INPUT -p tcp --dport 80 -j ACCEPT
 sudo iptables -A INPUT -p tcp --dport 443 -j ACCEPT
 sudo iptables -A INPUT -p tcp --dport 49621 -j ACCEPT
+sudo iptables -A INPUT -p tcp --dport 8000 -j ACCEPT
 
 # Allow ICMP
 sudo iptables -A INPUT -p icmp --icmp-type 8 -s 0/0 -m state --state NEW,ESTABLISHED -j ACCEPT
