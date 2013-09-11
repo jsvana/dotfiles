@@ -20,6 +20,8 @@ then
 	export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 	export PROJECTS="$HOME/Projects"
 	fpath=(/usr/local/share/zsh-completions $fpath)
+
+	. `brew --prefix`/etc/profile.d/z.sh
 fi
 
 if which rbenv &> /dev/null
@@ -30,8 +32,6 @@ fi
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
-
-. `brew --prefix`/etc/profile.d/z.sh
 
 . ~/.zsh/aliases.zsh
 . ~/.zsh/bindings.zsh
