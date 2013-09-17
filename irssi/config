@@ -94,3 +94,9 @@ settings = {
   "fe-text" = { actlist_sort = "refnum"; };
   "fe-common/core" = { theme = "elite"; };
 };
+ignores = (
+  {
+    level = "JOINS PARTS QUITS NICKS";
+    channels = ( "#main", "#encoded", "#mtu" );
+  }
+);

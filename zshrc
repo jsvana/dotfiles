@@ -28,6 +28,11 @@ then
 	export JSVANA_SETONCE=true
 fi
 
+if [[ `uname -s` == "Darwin" ]]
+then
+	. `brew --prefix`/etc/profile.d/z.sh
+fi
+
 if which rbenv &> /dev/null
 then
 	eval "$(rbenv init -)"
@@ -36,8 +41,6 @@ fi
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
-
-. `brew --prefix`/etc/profile.d/z.sh
 
 autoload -Uz compinit
 compinit
