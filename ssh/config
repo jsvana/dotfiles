@@ -9,8 +9,19 @@ Host hephaestus
 	HostName hephaestus.jsvana.io
 	Port 49621
 
+Host wopr
+	HostName wopr.csl.mtu.edu
+
 Host lcs
 	HostName 54.213.61.253
+
+Host noc-staging
+	User ccisystems
+	HostName 172.28.3.185
+
+Host probe-staging
+	User ccisystems
+	HostName 172.28.3.186
 
 Host *
   SendEnv LANG LC_CTYPE LC_NUMERIC LC_TIME LC_COLLATE LC_MONETARY LC_MESSAGES
