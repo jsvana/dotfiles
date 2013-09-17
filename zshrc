@@ -43,7 +43,7 @@ HISTSIZE=1000
 SAVEHIST=1000
 
 autoload -Uz compinit
-compinit
+compinit -u
 
 . ~/.zsh/aliases.zsh
 . ~/.zsh/bindings.zsh

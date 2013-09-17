@@ -12,8 +12,6 @@ ssh/known_hosts
 ssh/authorized_keys
 ssh/psg
 
-vim/bundle
-
 zsh/functions.local
 
 .DS_Store

@@ -1,6 +1,9 @@
 . ~/.zsh/colors.zsh
 . ~/.zsh/functions.zsh
 
+autoload -U promptinit
+promptinit
+
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' stagedstr "${fg_blue}?"
 zstyle ':vcs_info:*' unstagedstr "${fg_brown}?"
