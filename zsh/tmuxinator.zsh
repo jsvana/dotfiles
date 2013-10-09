@@ -1,0 +1,1 @@
+../tmuxinator/completion/tmuxinator.zsh

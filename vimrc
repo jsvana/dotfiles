@@ -32,15 +32,14 @@ call vundle#rc()
 set ttyfast
 
 Bundle 'gmarik/vundle'
-
+"
 " Each and every one is a little bundle of joy.
 Bundle 'bling/vim-airline'
 Bundle 'bling/vim-bufferline'
 Bundle 'phleet/vim-arcanist'
-Bundle 'myusuf3/numbers.vim'
 Bundle 'leafgarland/typescript-vim'
 Bundle 'jeetsukumaran/vim-buffergator'
-Bundle 'mattn/zencoding-vim'
+Bundle 'mattn/emmet-vim'
 Bundle 'Raimondi/delimitMate'
 Bundle 'kshenoy/vim-signature'
 Bundle 'vim-scripts/a.vim'
@@ -64,6 +63,7 @@ highlight ColorColumn guibg=Gray
 
 " Well this is nice.
 set rnu
+set nu
 
 set laststatus=2
 set encoding=utf-8
@@ -108,6 +108,12 @@ nmap <leader>t :tabnew<CR>
 " Easy splits
 nmap <leader>v :vsp<CR>
 nmap <leader>h :sp<CR>
+
+" Split resizing
+nnoremap <silent> <Leader>_ :exe "resize " . (winheight(0) * 3/2)<CR>
+nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
+nnoremap <silent> <Leader>+ :exe "vertical resize " . (winwidth(0) * 3/2)<CR>
+nnoremap <silent> <Leader>= :exe "vertical resize " . (winwidth(0) * 2/3)<CR>
 
 " Yay emmet
 nmap <TAB> <c-y>,
@@ -156,10 +162,16 @@ set ttimeout ttimeoutlen=0
 " Remember last location in file
 set viminfo='10,\"100,:20,%,n~/.viminfo'
 
+" All the colors
+set t_Co=256
+
+" Fancy fonts!
+let g:airline_powerline_fonts = 1
+
 autocmd BufReadPost *
-     \ if line("'\"") > 0 && line("'\"") <= line("$") |
-     \   exe "normal! g`\"" |
-     \ endif
+	\ if line("'\"") > 0 && line("'\"") <= line("$") |
+	\   exe "normal! g`\"" |
+	\ endif
 
 " NERDTree stuff
 map <C-n> :NERDTreeToggle<CR>
@@ -167,16 +179,16 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 
 " Set up cursor on insert
 if exists('$ITERM_PROFILE')
-  if exists('$TMUX')
-    let &t_SI = "\<Esc>[3 q"
-    let &t_EI = "\<Esc>[0 q"
-  else
-    let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-    let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-  endif
+	if exists('$TMUX')
+		let &t_SI = "\<Esc>[3 q"
+		let &t_EI = "\<Esc>[0 q"
+	else
+		let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+		let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+	endif
 endif
 
 " Machine-specific configs
 if filereadable(expand("~/.vimrc.local"))
-  source ~/.vimrc.local
+	source ~/.vimrc.local
 endif

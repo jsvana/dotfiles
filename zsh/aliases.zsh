@@ -14,6 +14,10 @@ alias m="mutt"
 alias nb="newsbeuter"
 alias :wq="exit"
 
+alias django="python manage.py"
+
+alias t="tmuxinator"
+
 alias v="vagrant"
 alias vl="vagrant list"
 alias vssh="vagrant ssh"

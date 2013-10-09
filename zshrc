@@ -45,6 +45,8 @@ SAVEHIST=1000
 autoload -Uz compinit
 compinit -u
 
+source ~/.zsh/tmuxinator.zsh
+
 . ~/.zsh/aliases.zsh
 . ~/.zsh/bindings.zsh
 . ~/.zsh/colors.zsh
