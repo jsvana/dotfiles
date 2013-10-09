@@ -26,3 +26,9 @@ config_link wgetrc
 config_link zlogin
 config_link zsh
 config_link zshrc
+
+if [[ `uname -s` == "Linux" && -e /etc/arch-release ]]
+then
+	config_link Xdefaults
+	config_link xinitrc
+fi

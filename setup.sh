@@ -30,7 +30,7 @@ elif [[ `uname -s` == "Linux" ]]
 then
 	if [ -e /etc/arch-release ]
 	then
-		sudo pacman -S wget git mercurial unzip mosh
+		sudo pacman -S wget git mercurial unzip mosh zsh rxvt-unicode xorg-server xorg-server-utils xorg-xinit subtle
 
 		read -p "Setup sshd? [Y/n]" choice
 		case $choice in
@@ -85,7 +85,7 @@ then
 	fi
 fi
 
-if $(vim --version | grep '7.3' &> /dev/null)
+if $(vim --version | grep '7.4' &> /dev/null)
 then
 	vim +BundleInstall +qall
 else
