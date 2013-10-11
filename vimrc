@@ -57,6 +57,7 @@ Bundle 'vim-scripts/multvals.vim'
 Bundle 'vim-scripts/genutils'
 Bundle 'tomtom/tlib_vim'
 Bundle 'tomtom/viki_vim'
+Bundle 'Valloric/YouCompleteMe'
 
 " Dat color scheme
 "color kib_darktango
