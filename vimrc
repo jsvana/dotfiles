@@ -53,6 +53,10 @@ Bundle 'juvenn/mustache.vim'
 Bundle 'rizzatti/funcoo.vim'
 Bundle 'rizzatti/dash.vim'
 Bundle 'rosenfeld/conque-term'
+Bundle 'vim-scripts/multvals.vim'
+Bundle 'vim-scripts/genutils'
+Bundle 'tomtom/tlib_vim'
+Bundle 'tomtom/viki_vim'
 
 " Dat color scheme
 "color kib_darktango
@@ -100,14 +104,11 @@ vmap <S--> <c-w><S-->
 """""""""""
 
 " Set leader
-let mapleader = ","
+let mapleader = "-"
+let maplocalleader = "\\"
 
 " Easy tab creation
 nmap <leader>t :tabnew<CR>
-
-" Easy splits
-nmap <leader>v :vsp<CR>
-nmap <leader>h :sp<CR>
 
 " Split resizing
 nnoremap <silent> <Leader>_ :exe "resize " . (winheight(0) * 3/2)<CR>
@@ -133,6 +134,9 @@ nmap <silent> <leader>d <Plug>DashSearch
 
 " Reload vimrc
 map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
+
+" For iTerm2
+nmap ✠ <C-CR>
 
 " Brief crosshairs on the cursor
 function! CursorPing()
@@ -176,6 +180,10 @@ autocmd BufReadPost *
 " NERDTree stuff
 map <C-n> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+" Expansions
+iab #i #include
+iab #d #define
 
 " Set up cursor on insert
 if exists('$ITERM_PROFILE')
