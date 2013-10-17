@@ -32,7 +32,7 @@ call vundle#rc()
 set ttyfast
 
 Bundle 'gmarik/vundle'
-"
+
 " Each and every one is a little bundle of joy.
 Bundle 'bling/vim-airline'
 Bundle 'bling/vim-bufferline'
@@ -58,11 +58,19 @@ Bundle 'vim-scripts/genutils'
 Bundle 'tomtom/tlib_vim'
 Bundle 'tomtom/viki_vim'
 Bundle 'Valloric/YouCompleteMe'
+Bundle 'kien/rainbow_parentheses.vim'
+Bundle 'guns/vim-clojure-static'
+Bundle 'tpope/vim-fireplace'
+
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
 
 " Dat color scheme
 "color kib_darktango
 set background=dark
-colorscheme vimbrant
+colorscheme base16-atelierforest
 highlight ColorColumn ctermbg=7
 highlight ColorColumn guibg=Gray
 

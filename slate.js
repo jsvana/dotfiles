@@ -112,7 +112,7 @@ S.bindAll({
 		'2': $('toss', '1', 'resize'),
 		'3': $('toss', '2', 'resize'),
 		// direct focus
-		w: $.focus('Nightly'),
+		w: $.focus('Google Chrome'),
 		t: $.focus('iTerm'),
 		f: $.focus('Finder'),
 		r: $.focus('Rdio'),

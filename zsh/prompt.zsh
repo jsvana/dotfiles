@@ -9,14 +9,14 @@ zstyle ':vcs_info:*' stagedstr "${fg_blue}?"
 zstyle ':vcs_info:*' unstagedstr "${fg_brown}?"
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{11}%r'
-zstyle ':vcs_info:*' enable git svn
+zstyle ':vcs_info:*' enable git
 
 precmd() {
 	if [[ -z $(git ls-files --other --exclude-standard 2> /dev/null) ]]
 	then
-		zstyle ':vcs_info:*' formats "${at_normal} ${fg_dgray}(%b%c%u${fg_dgray})${at_normal}"
+		zstyle ':vcs_info:*' formats "${fg_blue}⑁%c%u${at_normal}"
 	else
-		zstyle ':vcs_info:*' formats "${at_normal} ${fg_dgray}(%b%c%u${fg_red}!${fg_dgray})${at_normal}"
+		zstyle ':vcs_info:*' formats "${fg_blue}⑁%c%u${fg_red}!${fg_dgray}${at_normal}"
 	fi
 
 	vcs_info
@@ -25,7 +25,7 @@ precmd() {
 ssh_conn() {
 	if [[ -n $SSH_CONNECTION ]]
 	then
-		echo "${fg_red}(ssh)${at_normal} "
+		echo "${fg_red}\u2388${at_normal} "
   fi
 }
 
@@ -38,8 +38,9 @@ battery_prompt() {
 }
 
 setopt prompt_subst
+user_symbol='\u23c0'
 
-PROMPT=$'$(ssh_conn)${fg_lcyan}%n${at_normal}${fg_lgray}@${at_bold}${fg_brown}%m ${fg_blue}%~${vcs_info_msg_0_}$(battery_prompt)\n%(?/${at_normal}/${fg_red})%%${at_normal} '
+PROMPT=$'${fg_green}\u23c0${at_normal} $(ssh_conn)${vcs_info_msg_0_}%(?/${at_normal}/${fg_red})%(!.#.:)${at_normal} '
 RPROMPT="${fg_dgray}%T${at_normal}"
 
 INSERT_PROMPT="gray"
