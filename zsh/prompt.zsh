@@ -14,9 +14,9 @@ zstyle ':vcs_info:*' enable git
 precmd() {
 	if [[ -z $(git ls-files --other --exclude-standard 2> /dev/null) ]]
 	then
-		zstyle ':vcs_info:*' formats "${fg_blue}⑁%c%u${at_normal}"
+		zstyle ':vcs_info:*' formats "${fg_blue}⑁%c%u${at_normal} "
 	else
-		zstyle ':vcs_info:*' formats "${fg_blue}⑁%c%u${fg_red}!${fg_dgray}${at_normal}"
+		zstyle ':vcs_info:*' formats "${fg_blue}⑁%c%u${fg_red}!${fg_dgray}${at_normal} "
 	fi
 
 	vcs_info
@@ -38,9 +38,17 @@ battery_prompt() {
 }
 
 setopt prompt_subst
-user_symbol='\u23c0'
 
-PROMPT=$'${fg_green}\u23c0${at_normal} $(ssh_conn)${vcs_info_msg_0_}%(?/${at_normal}/${fg_red})%(!.#.:)${at_normal} '
+case `hostname` in
+	'athena')
+		prompt_start_char='∀'
+		;;
+	'hephaestus')
+		prompt_start_char='⚒'
+		;;
+esac
+
+PROMPT=$'${fg_green}${prompt_start_char}${at_normal}$(ssh_conn)${vcs_info_msg_0_}%2c%(?/${at_normal}/${fg_red})%(!.#.:)${at_normal} '
 RPROMPT="${fg_dgray}%T${at_normal}"
 
 INSERT_PROMPT="gray"
