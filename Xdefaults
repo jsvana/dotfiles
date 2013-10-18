@@ -1,5 +1,8 @@
-urxvt.font:      xft:Terminux-8
-urxvt.boldFont:  xft:Terminux-8
+!urxvt.font:      xft:Terminus-12
+!urxvt.boldFont:  xft:Terminus-12
+urxvt.font:      xft:Terminess Powerline:pixelsize=14
+urxvt.boldFont:  xft:Terminess Powerline:pixelsize=14
+
 urxvt.termName:  rxvt-256color
 urxvt.scrollBar: false
 
@@ -7,22 +10,22 @@ urxvt.perl-ext-common: default,matcher
 urxvt.url-launcher:    /usr/bin/google-chrome
 urxvt.matcher.button:  1
 
-urxvt*foreground:   #c5c8c6
-urxvt*background:   #1d1f21
-urxvt*cursorColor:  #aeafad
-urxvt*color0:       #000000
-urxvt*color1:       #912226
-urxvt*color2:       #778900
-urxvt*color3:       #ae7b00
-urxvt*color4:       #1d2594
-urxvt*color5:       #682a9b
-urxvt*color6:       #2b6651
-urxvt*color7:       #929593
-urxvt*color8:       #666666
-urxvt*color9:       #cc6666
-urxvt*color10:      #b5bd68
-urxvt*color11:      #f0c674
-urxvt*color12:      #81a2be
-urxvt*color13:      #b294bb
-urxvt*color14:      #8abeb7
-urxvt*color15:      #ecebec
+urxvt*foreground:   #d3d0c8
+urxvt*background:   #2d2d2d
+urxvt*cursorColor:  #d3d0c8
+urxvt*color0:       #2d2d2d
+urxvt*color1:       #f2777a
+urxvt*color2:       #99cc99
+urxvt*color3:       #ffcc66
+urxvt*color4:       #6699cc
+urxvt*color5:       #cc99cc
+urxvt*color6:       #66cccc
+urxvt*color7:       #d3d0c8
+urxvt*color8:       #747369
+urxvt*color9:       #f99157
+urxvt*color10:      #393939
+urxvt*color11:      #515151
+urxvt*color12:      #a09f93
+urxvt*color13:      #e8e6df
+urxvt*color14:      #d27b53
+urxvt*color15:      #f2f0ec

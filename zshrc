@@ -45,6 +45,8 @@ SAVEHIST=1000
 autoload -Uz compinit
 compinit -u
 
+[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
+
 source ~/.zsh/tmuxinator.zsh
 
 . ~/.zsh/aliases.zsh

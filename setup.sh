@@ -30,7 +30,8 @@ elif [[ `uname -s` == "Linux" ]]
 then
 	if [ -e /etc/arch-release ]
 	then
-		sudo pacman -S wget git mercurial unzip mosh zsh rxvt-unicode xorg-server xorg-server-utils xorg-xinit subtle
+		sudo pacman -S wget git mercurial unzip mosh zsh rxvt-unicode xorg-server \
+			xorg-server-utils xorg-xinit subtle base-devel
 
 		read -p "Setup sshd? [Y/n]" choice
 		case $choice in

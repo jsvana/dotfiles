@@ -179,7 +179,7 @@ set viminfo='10,\"100,:20,%,n~/.viminfo'
 set t_Co=256
 
 " Fancy fonts!
-let g:airline_powerline_fonts = 1
+"let g:airline_powerline_fonts = 1
 
 autocmd BufReadPost *
 	\ if line("'\"") > 0 && line("'\"") <= line("$") |
