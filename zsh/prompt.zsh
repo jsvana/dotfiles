@@ -46,6 +46,8 @@ case `hostname` in
 	'hephaestus')
 		prompt_start_char='⚒'
 		;;
+	'aceso')
+		prompt_start_char='Đ'
 esac
 
 PROMPT=$'${fg_green}${prompt_start_char}${at_normal}$(ssh_conn)${vcs_info_msg_0_}%2c%(?/${at_normal}/${fg_red})%(!.#.:)${at_normal} '
