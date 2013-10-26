@@ -1,3 +1,11 @@
+[core]
+	editor = vim
+	excludesfile = ~/.gitignore
+	pager = less
+[color]
+	ui = auto
+[web]
+	browser = open
 [user]
 	name = Jay Vana
 	email = jsvana@mtu.edu
@@ -22,4 +30,5 @@
 	r = !git ls-files -z --deleted | xargs -0 git rm
 	alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1 => \\2/' | sort
 	diff = diff --check
+	root = rev-parse --show-toplevel
 	yolo = !git commit -am \"`curl -s http://whatthecommit.com/index.txt`\"
