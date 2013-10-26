@@ -22,8 +22,6 @@ set noshowmode
 " Wrapping bad.
 set nowrap
 
-set rtp+=/usr/local/Cellar/go/1.1.1/misc/vim
-
 " Vundle is just so darn convenient.
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
@@ -42,7 +40,6 @@ Bundle 'jeetsukumaran/vim-buffergator'
 Bundle 'mattn/emmet-vim'
 Bundle 'Raimondi/delimitMate'
 Bundle 'kshenoy/vim-signature'
-Bundle 'vim-scripts/a.vim'
 Bundle 'chreekat/vim-paren-crosshairs'
 Bundle 'scrooloose/syntastic'
 Bundle 'sjl/vitality.vim'
@@ -53,13 +50,17 @@ Bundle 'juvenn/mustache.vim'
 Bundle 'rizzatti/funcoo.vim'
 Bundle 'rizzatti/dash.vim'
 Bundle 'rosenfeld/conque-term'
-Bundle 'vim-scripts/multvals.vim'
-Bundle 'vim-scripts/genutils'
 Bundle 'tomtom/tlib_vim'
 Bundle 'tomtom/viki_vim'
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'guns/vim-clojure-static'
 Bundle 'tpope/vim-fireplace'
+
+" vim-scripts
+Bundle 'vim-scripts/a.vim'
+Bundle 'vim-scripts/multvals.vim'
+Bundle 'vim-scripts/genutils.vim'
+Bundle 'vim-scripts/glsl.vim'
 
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
@@ -155,9 +156,6 @@ function! CursorPing()
 endfunction
 nmap <Leader><Leader> :call CursorPing()<CR>
 
-" Boo gofmt
-autocmd BufWritePre *.go Fmt
-
 " Dat whitespace
 autocmd BufWritePre * :%s/\s\+$//e
 autocmd BufWritePre * :%s/\n\{3,}/\r\r/e
@@ -176,9 +174,6 @@ set viminfo='10,\"100,:20,%,n~/.viminfo'
 
 " All the colors
 set t_Co=256
-
-" Fancy fonts!
-"let g:airline_powerline_fonts = 1
 
 autocmd BufReadPost *
 	\ if line("'\"") > 0 && line("'\"") <= line("$") |

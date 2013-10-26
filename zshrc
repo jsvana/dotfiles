@@ -4,7 +4,6 @@ then
 	export EDITOR=/usr/bin/vim
 
 	# go
-	export GOPATH=$HOME/go
 	export PATH=$PATH:$HOME/go/bin
 
 	# npm
@@ -31,6 +30,17 @@ fi
 if [[ `uname -s` == "Darwin" ]]
 then
 	. `brew --prefix`/etc/profile.d/z.sh
+	if type go &> /dev/null; then
+		function setupGOROOT() {
+			local GODIR=`which go`
+			local GOPATH=`dirname $GODIR`
+			local GOPATH_BREW_RELATIVE=`readlink $GODIR`
+			local GOPATH_BREW=`dirname $GOPATH_BREW_RELATIVE`
+			export GOROOT=`cd $GOPATH; cd $GOPATH_BREW/..; pwd`'/libexec'
+			export GOPATH=$HOME/.go
+		}
+		setupGOROOT
+	fi
 fi
 
 if which rbenv &> /dev/null
