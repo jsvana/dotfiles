@@ -48,7 +48,9 @@ then
 	eval "$(rbenv init -)"
 fi
 
-HISTFILE=~/.histfile
+DOTFILES=$HOME/.configs
+
+HISTFILE=$HOME/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
 
