@@ -1,5 +1,5 @@
 export DOTFILES="$HOME/.dotfiles"
-export PATH="$DOTFILES/bin:$HOME/go/bin:/usr/local/share/npm/bin:$HOME/.rbenv/bin:$PATH"
+export PATH="/usr/local/bin:$DOTFILES/bin:$HOME/go/bin:/usr/local/share/npm/bin:$HOME/.rbenv/bin:$PATH"
 
 case `uname -s` in
 	"Darwin")

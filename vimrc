@@ -22,6 +22,10 @@ set noshowmode
 " Wrapping bad.
 set nowrap
 
+" Well this is nice.
+set rnu
+set nu
+
 " Vundle is just so darn convenient.
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
@@ -73,10 +77,6 @@ set background=dark
 colorscheme base16-atelierforest
 highlight ColorColumn ctermbg=7
 highlight ColorColumn guibg=Gray
-
-" Well this is nice.
-set rnu
-set nu
 
 set laststatus=2
 set encoding=utf-8
