@@ -7,7 +7,6 @@ function config_link {
   fi
 }
 
-config_link bin
 config_link gitconfig
 config_link gitignore
 config_link hgrc
