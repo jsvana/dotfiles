@@ -30,7 +30,7 @@ git_since() {
 }
 
 git_branch() {
-  printf " #[fg=colour7]$(git rev-parse --abbrev-ref HEAD) "
+  printf " #[fg=colour5]$(git rev-parse --abbrev-ref HEAD) "
 }
 
 git_pwd() {
@@ -44,7 +44,7 @@ git_pwd() {
 }
 
 battery() {
-	printf " #[fg=colour2]%s" "$(acpi -b | sed -r 's/^.*, ([0-9]+)%.*/\1/')%"
+	printf " #[fg=colour6]%s" "$(acpi -b | sed -r 's/^.*, ([0-9]+)%.*/\1/')%"
 
 	if acpi -b | grep Charging &> /dev/null; then
 		printf " \u26a1"
@@ -52,7 +52,7 @@ battery() {
 }
 
 date_f() {
-	printf " #[fg=colour5]%s" "$(date +"%d %b %H:%M")"
+	printf " #[fg=colour8]%s" "$(date +"%d %b %H:%M")"
 }
 
 if git root &> /dev/null; then
