@@ -1,7 +1,5 @@
-!urxvt.font:      xft:Terminus-12
-!urxvt.boldFont:  xft:Terminus-12
-urxvt.font:      xft:Terminess Powerline:pixelsize=14
-urxvt.boldFont:  xft:Terminess Powerline:pixelsize=14
+urxvt.font:      xft:Terminus-12
+urxvt.boldFont:  xft:Terminus-12
 
 urxvt.termName:  rxvt-256color
 urxvt.scrollBar: false

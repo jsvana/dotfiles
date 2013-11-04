@@ -34,6 +34,12 @@ set :wmname, "LG3D"
 # == Screen
 
 screen 1 do
+  #top    [ :views, :separator, :title, :spacer, :tray, :sublets ]
+  top    [ ]
+  bottom [ ]
+end
+
+screen 2 do
   top    [ :views, :separator, :title, :spacer, :tray, :sublets ]
   bottom [ ]
 end
@@ -227,15 +233,21 @@ grab "W-h", :WindowLeft
 grab "W-j", :WindowDown
 grab "W-k", :WindowUp
 grab "W-l", :WindowRight
-grab "W-Left", :WindowLeft
-grab "W-Down", :WindowDown
-grab "W-Up", :WindowUp
-grab "W-Right", :WindowRight
+#grab "W-Left", :WindowLeft
+#grab "W-Down", :WindowDown
+#grab "W-Up", :WindowUp
+#grab "W-Right", :WindowRight
 
 # Kill current window
 grab "A-F4", :WindowKill
 
-grab "A-F2", "dmenu_run"
+grab "A-F2", "dmenu-start"
+
+grab "XF86AudioLowerVolume", "amixer set Master 5-"
+grab "XF86AudioRaiseVolume", "amixer set Master 5+"
+grab "XF86AudioMute", "amixer sset Master toggle"
+grab "XF86MonBrightnessDown", "xbacklight -dec 10"
+grab "XF86MonBrightnessUp", "xbacklight -inc 10"
 
 # Cycle between given gravities
 grab "W-q", [ :top_left,     :top_left66,     :top_left33     ]
@@ -249,8 +261,7 @@ grab "W-x", [ :bottom,       :bottom66,       :bottom33       ]
 grab "W-c", [ :bottom_right, :bottom_right66, :bottom_right33 ]
 
 # Exec programs
-#grab "W-Return", "urxvt"
-grab "W-Return", "termite"
+grab "W-Return", "urxvt"
 
 # Run Ruby lambdas
 grab "S-F2" do |c|

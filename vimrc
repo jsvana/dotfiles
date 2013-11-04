@@ -47,6 +47,7 @@ Bundle 'kshenoy/vim-signature'
 Bundle 'chreekat/vim-paren-crosshairs'
 Bundle 'scrooloose/syntastic'
 Bundle 'sjl/vitality.vim'
+Bundle 'sjl/clam.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'markcornick/vim-vagrant'
 Bundle 'tpope/vim-surround'
@@ -59,12 +60,7 @@ Bundle 'tomtom/viki_vim'
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'guns/vim-clojure-static'
 Bundle 'tpope/vim-fireplace'
-
-" vim-scripts
 Bundle 'vim-scripts/a.vim'
-Bundle 'vim-scripts/multvals.vim'
-Bundle 'vim-scripts/genutils.vim'
-Bundle 'vim-scripts/glsl.vim'
 
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound

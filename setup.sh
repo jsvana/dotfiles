@@ -11,7 +11,6 @@ function aur_build {
 
 ./config-setup.sh
 
-mkdir ~/bin
 mkdir ~/go
 
 if [[ `uname -s` == "Darwin" ]]

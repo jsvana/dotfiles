@@ -43,11 +43,27 @@ git_pwd() {
   printf " #[fg=$color]%s" "$(short_pwd)"
 }
 
+battery() {
+	printf " #[fg=colour2]%s" "$(acpi -b | sed -r 's/^.*, ([0-9]+)%.*/\1/')%"
+
+	if acpi -b | grep Charging &> /dev/null; then
+		printf " \u26a1"
+	fi
+}
+
+date_f() {
+	printf " #[fg=colour5]%s" "$(date +"%d %b %H:%M")"
+}
+
 if git root &> /dev/null; then
+	date_f
+	battery
   git_status
   git_since
   git_branch
   git_pwd
 else
-  printf " #[fg=colour4]%s" "$(short_pwd)"
+	date_f
+	battery
+	printf " #[fg=colour4]%s" "$(short_pwd)"
 fi
