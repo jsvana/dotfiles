@@ -44,10 +44,12 @@ git_pwd() {
 }
 
 battery() {
-	printf " #[fg=colour6]%s" "$(acpi -b | sed -r 's/^.*, ([0-9]+)%.*/\1/')%"
+	if which acpi >/dev/null; then
+		printf " #[fg=colour6]%s" "$(acpi -b | sed -r 's/^.*, ([0-9]+)%.*/\1/')%"
 
-	if acpi -b | grep -E '(Charging|Full)' &> /dev/null; then
-		printf " \u26a1"
+		if acpi -b | grep -E '(Charging|Full)' &> /dev/null; then
+			printf " \u26a1"
+		fi
 	fi
 }
 
