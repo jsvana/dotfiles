@@ -8,6 +8,10 @@ urxvt.perl-ext-common: default,matcher
 urxvt.url-launcher:    /usr/bin/google-chrome
 urxvt.matcher.button:  1
 
+urxvt.keysym.C-0: command:\033]710;xft:Terminus-12\007
+urxvt.keysym.C-minus: command:\033]710;xft:Terminus-10\007
+urxvt.keysym.C-equal: command:\033]710;xft:Terminus-16\007
+
 urxvt*foreground:   #d3d0c8
 urxvt*background:   #2d2d2d
 urxvt*cursorColor:  #d3d0c8

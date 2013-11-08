@@ -1,5 +1,5 @@
 #!/usr/bin/env zsh
-set -ue
+set -e
 
 cd "$(tmux showenv "$(tmux display -p "TMUX_PWD_#D")" | cut -d= -f2-)"
 
@@ -46,7 +46,7 @@ git_pwd() {
 battery() {
 	printf " #[fg=colour6]%s" "$(acpi -b | sed -r 's/^.*, ([0-9]+)%.*/\1/')%"
 
-	if acpi -b | grep Charging &> /dev/null; then
+	if acpi -b | grep -E '(Charging|Full)' &> /dev/null; then
 		printf " \u26a1"
 	fi
 }
@@ -55,7 +55,14 @@ date_f() {
 	printf " #[fg=colour8]%s" "$(date +"%d %b %H:%M")"
 }
 
+ssh_conn() {
+	if [[ -n "$SSH_CONNECTION" ]]; then
+		printf " #[fg=colour9](ssh)"
+	fi
+}
+
 if git root &> /dev/null; then
+	ssh_conn
 	date_f
 	battery
   git_status
@@ -63,6 +70,7 @@ if git root &> /dev/null; then
   git_branch
   git_pwd
 else
+	ssh_conn
 	date_f
 	battery
 	printf " #[fg=colour4]%s" "$(short_pwd)"
