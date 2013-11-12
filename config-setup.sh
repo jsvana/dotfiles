@@ -12,6 +12,7 @@ config_link gitignore
 config_link hgrc
 
 config_link irssi
+config_link musca_start
 config_link mutt
 config_link muttrc
 config_link newsbeuter
@@ -23,7 +24,6 @@ config_link vimrc
 config_link wgetrc
 
 config_link zlogin
-config_link zsh
 config_link zshrc
 
 if [[ `uname -s` == "Linux" && -e /etc/arch-release ]]

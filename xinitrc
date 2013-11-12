@@ -1,2 +1,3 @@
 source ~/.xinitrc.local
-exec subtle
+# exec subtle
+exec musca
