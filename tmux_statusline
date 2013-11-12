@@ -63,8 +63,15 @@ ssh_conn() {
 	fi
 }
 
+pacman_updates() {
+	if which pacman >/dev/null; then
+		printf " #[fg=colour25]%s updates" "$(cat /tmp/pacman)"
+	fi
+}
+
 if git root &> /dev/null; then
 	ssh_conn
+	pacman_updates
 	date_f
 	battery
   git_status
@@ -73,6 +80,7 @@ if git root &> /dev/null; then
   git_pwd
 else
 	ssh_conn
+	pacman_updates
 	date_f
 	battery
 	printf " #[fg=colour4]%s" "$(short_pwd)"

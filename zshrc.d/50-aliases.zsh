@@ -15,6 +15,7 @@ alias nb="newsbeuter"
 alias :wq="exit"
 
 alias django="python manage.py"
+alias django2="python2 manage.py"
 
 alias t="tmuxinator"
 
