@@ -23,8 +23,8 @@ map - <Leader>
 
 map <Leader>f f
 
-map gt l
-map gT h
+map l gt
+map h gT
 
 nmap -builtin j 15j
 nmap -builtin k 15k

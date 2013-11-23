@@ -9,6 +9,8 @@ mutt/certificates
 newsbeuter/cache.*
 newsbeuter/history.*
 
+pentadactyl/info
+
 ssh/id_rsa*
 ssh/known_hosts
 ssh/authorized_keys
