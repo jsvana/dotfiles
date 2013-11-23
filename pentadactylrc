@@ -45,6 +45,4 @@ silent qmark m https://mail.google.com/
 silent qmark p http://piperka.net/
 silent qmark n http://news.ycombinator.com/
 
-:autocmd LocationChange facebook.com :normal! <C-z>
-
 " vim: ft=vim fdm=marker:
