@@ -16,6 +16,8 @@ config_link musca_start
 config_link mutt
 config_link muttrc
 config_link newsbeuter
+config_link pentadactyl
+config_link pentadactylrc
 config_link slate.js
 config_link ssh
 config_link tmux.conf

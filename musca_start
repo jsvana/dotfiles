@@ -27,7 +27,7 @@ bind on XF86MonBrightnessDown xbacklight -dec 10
 bind on XF86MonBrightnessUp xbacklight -inc 10
 
 # Programs
-bind on Mod4+Return exec urxvt
+bind on Mod4+Return exec urxvt -e $SHELL -c "tmux -q has-session && exec tmux attach-session -d || exec tmuxinator start dev"
 bind on Mod4+f exec firefox
 
 # Remove border
