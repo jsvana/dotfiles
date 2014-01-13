@@ -22,6 +22,9 @@ set noshowmode
 " Wrapping bad.
 set nowrap
 
+" Increment/decrement characters, too!
+set nrformats+=alpha
+
 " Well this is nice.
 set rnu
 set nu
@@ -62,6 +65,9 @@ Bundle 'guns/vim-clojure-static'
 Bundle 'tpope/vim-fireplace'
 Bundle 'vim-scripts/a.vim'
 Bundle 'pct/present.vim'
+Bundle 'digitaltoad/vim-jade'
+Bundle 'jelera/vim-javascript-syntax'
+Bundle 'christoomey/vim-tmux-navigator'
 
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
@@ -83,10 +89,6 @@ syntax on
 
 " Let's show a little more when scrolling, eh?
 set scrolloff=5
-
-" Pasting is so much nicer when formatting is preserved.
-set pastetoggle=<F2>
-nmap <c-v> <F2>
 
 set directory=/tmp
 
@@ -114,7 +116,11 @@ let mapleader = "-"
 let maplocalleader = "\\"
 
 " Easy tab creation
-nmap <leader>t :tabnew<CR>
+nmap <Leader>t :tabnew<CR>
+
+" Pasting is so much nicer when formatting is preserved.
+set pastetoggle=<F2>
+nmap <Leader>p <F2>
 
 " Split resizing
 nnoremap <silent> <Leader>_ :exe "resize " . (winheight(0) * 3/2)<CR>
@@ -130,16 +136,16 @@ nmap <leader>a :A<CR>
 
 " Toggle hlsearch
 let hlstate=0
-nmap <leader>s :if (hlstate == 0) \| nohlsearch \| else \| set hlsearch \| endif \| let hlstate=1-hlstate<CR>
+nmap <Leader>s :if (hlstate == 0) \| nohlsearch \| else \| set hlsearch \| endif \| let hlstate=1-hlstate<CR>
 
 " Quick buffer switching
-nmap <leader>bn :bnext<CR>
+nmap <Leader>bn :bnext<CR>
 
 " Dash search
-nmap <silent> <leader>d <Plug>DashSearch
+nmap <silent> <Leader>d <Plug>DashSearch
 
 " Reload vimrc
-map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
+map <silent> <Leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
 " For iTerm2
 nmap ✠ <C-CR>
@@ -162,7 +168,7 @@ set colorcolumn=81
 
 " Show whitespace
 set listchars=tab:▸\ ,eol:¬
-nmap <leader>l :set list!<CR>
+nmap <Leader>l :set list!<CR>
 
 set ttimeout ttimeoutlen=0
 
