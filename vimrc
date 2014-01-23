@@ -47,7 +47,6 @@ Bundle 'jeetsukumaran/vim-buffergator'
 Bundle 'mattn/emmet-vim'
 Bundle 'Raimondi/delimitMate'
 Bundle 'kshenoy/vim-signature'
-Bundle 'chreekat/vim-paren-crosshairs'
 Bundle 'scrooloose/syntastic'
 Bundle 'sjl/vitality.vim'
 Bundle 'sjl/clam.vim'
@@ -68,6 +67,7 @@ Bundle 'pct/present.vim'
 Bundle 'digitaltoad/vim-jade'
 Bundle 'jelera/vim-javascript-syntax'
 Bundle 'christoomey/vim-tmux-navigator'
+Bundle 'altercation/vim-colors-solarized'
 
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
@@ -77,7 +77,7 @@ au Syntax * RainbowParenthesesLoadBraces
 " Dat color scheme
 "color kib_darktango
 set background=dark
-colorscheme base16-atelierforest
+colorscheme solarized
 highlight ColorColumn ctermbg=7
 highlight ColorColumn guibg=Gray
 
@@ -86,6 +86,9 @@ set encoding=utf-8
 
 filetype plugin indent on
 syntax on
+
+set splitbelow
+set splitright
 
 " Let's show a little more when scrolling, eh?
 set scrolloff=5
@@ -106,6 +109,9 @@ nmap <S-=> <c-w><S-=>
 nmap <S--> <c-w><S-->
 vmap <S-=> <c-w><S-=>
 vmap <S--> <c-w><S-->
+
+nmap <Space> :
+vmap <Space> :
 
 """""""""""
 """ Leaders
