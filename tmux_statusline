@@ -54,7 +54,7 @@ battery() {
 }
 
 date_f() {
-	printf " #[fg=colour8]%s" "$(date +"%d %b %H:%M")"
+	printf " #[fg=colour9]%s" "$(date +"%d %b %H:%M")"
 }
 
 ssh_conn() {

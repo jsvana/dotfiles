@@ -54,8 +54,6 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'markcornick/vim-vagrant'
 Bundle 'tpope/vim-surround'
 Bundle 'juvenn/mustache.vim'
-Bundle 'rizzatti/funcoo.vim'
-Bundle 'rizzatti/dash.vim'
 Bundle 'rosenfeld/conque-term'
 Bundle 'tomtom/tlib_vim'
 Bundle 'tomtom/viki_vim'
@@ -68,6 +66,10 @@ Bundle 'digitaltoad/vim-jade'
 Bundle 'jelera/vim-javascript-syntax'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'evidens/vim-twig'
+Bundle 'Keithbsmiley/investigate.vim'
+Bundle 'kien/ctrlp.vim'
+Bundle 'airblade/vim-gitgutter'
 
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
@@ -183,6 +185,8 @@ set viminfo='10,\"100,:20,%,n~/.viminfo'
 
 " All the colors
 set t_Co=256
+
+let g:investigate_use_dash=1
 
 autocmd BufReadPost *
 	\ if line("'\"") > 0 && line("'\"") <= line("$") |
