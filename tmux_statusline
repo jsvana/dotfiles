@@ -43,6 +43,21 @@ git_pwd() {
   printf " #[fg=$color]%s" "$(short_pwd)"
 }
 
+wifi() {
+	local state="$(airport -I | grep state | awk '{print $2; }')"
+
+	printf " #[fg=colour11]"
+	if [[ -n "$state" ]]; then
+		if [[ "$state" -eq "running" ]]; then
+			printf "+"
+		else
+			printf "±"
+		fi
+	else
+		printf "-"
+	fi
+}
+
 battery() {
 	if which acpi >/dev/null; then
 		printf " #[fg=colour6]%s" "$(acpi -b | sed -r 's/^.*, ([0-9]+)%.*/\1/')%"
@@ -50,6 +65,8 @@ battery() {
 		if acpi -b | grep -E '(Charging|Full)' &> /dev/null; then
 			printf " \u26a1"
 		fi
+	else
+		printf " #[fg=colour6]%s" "$(pmset -g ps  |  sed -n 's/.*[[:blank:]]+*\(.*%\).*/\1/p')"
 	fi
 }
 
@@ -69,19 +86,16 @@ pacman_updates() {
 	fi
 }
 
+ssh_conn
+wifi
+battery
+pacman_updates
+date_f
 if git root &> /dev/null; then
-	ssh_conn
-	pacman_updates
-	date_f
-	battery
   git_status
   git_since
   git_branch
   git_pwd
 else
-	ssh_conn
-	pacman_updates
-	date_f
-	battery
 	printf " #[fg=colour4]%s" "$(short_pwd)"
 fi

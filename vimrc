@@ -36,6 +36,8 @@ call vundle#rc()
 " The futuuuuuuurrreeeeee
 set ttyfast
 
+set lazyredraw
+
 Bundle 'gmarik/vundle'
 
 " Each and every one is a little bundle of joy.
@@ -60,7 +62,7 @@ Bundle 'tomtom/viki_vim'
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'guns/vim-clojure-static'
 Bundle 'tpope/vim-fireplace'
-Bundle 'vim-scripts/a.vim'
+Bundle 'bmchrist/a.vim'
 Bundle 'pct/present.vim'
 Bundle 'digitaltoad/vim-jade'
 Bundle 'jelera/vim-javascript-syntax'
@@ -70,6 +72,8 @@ Bundle 'evidens/vim-twig'
 Bundle 'Keithbsmiley/investigate.vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'airblade/vim-gitgutter'
+Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-sleuth'
 
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
@@ -112,8 +116,8 @@ nmap <S--> <c-w><S-->
 vmap <S-=> <c-w><S-=>
 vmap <S--> <c-w><S-->
 
-nmap <Space> :
-vmap <Space> :
+"nmap <Space> :
+"vmap <Space> :
 
 """""""""""
 """ Leaders
@@ -121,10 +125,15 @@ vmap <Space> :
 
 " Set leader
 let mapleader = "-"
+let mapleader = "\<Space>"
 let maplocalleader = "\\"
 
 " Easy tab creation
 nmap <Leader>t :tabnew<CR>
+
+" Easy splits
+nmap <Leader>V :vsp<CR>
+nmap <Leader>H :sp<CR>
 
 " Pasting is so much nicer when formatting is preserved.
 set pastetoggle=<F2>
@@ -153,7 +162,7 @@ nmap <Leader>bn :bnext<CR>
 nmap <silent> <Leader>d <Plug>DashSearch
 
 " Reload vimrc
-map <silent> <Leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
+map <silent> <Leader>R :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
 " For iTerm2
 nmap ✠ <C-CR>
