@@ -74,6 +74,7 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-sleuth'
+Bundle 'kchmck/vim-coffee-script'
 
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
@@ -81,7 +82,6 @@ au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
 " Dat color scheme
-"color kib_darktango
 set background=dark
 colorscheme solarized
 highlight ColorColumn ctermbg=7
