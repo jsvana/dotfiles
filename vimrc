@@ -74,11 +74,13 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'scrooloose/nerdcommenter'
 
 " tpope's my hero
+Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-fireplace'
 Bundle 'tpope/vim-eunuch'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-sleuth'
+Bundle 'tpope/vim-speeddating'
 
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound

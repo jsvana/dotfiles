@@ -1,1 +1,2 @@
--a
+--type-add
+html=.html.erb,.html.haml,.haml

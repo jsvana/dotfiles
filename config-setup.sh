@@ -11,6 +11,7 @@ config_link gitconfig
 config_link gitignore
 config_link hgrc
 
+config_link ackrc
 config_link dircolors
 config_link irssi
 config_link musca_start
