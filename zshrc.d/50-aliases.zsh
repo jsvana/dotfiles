@@ -6,7 +6,10 @@ then
 	alias ls="ls -G"
 fi
 
+alias source_zsh="source $DOTFILES/zshrc"
+
 alias vi="vim"
+alias vrc="vim $DOTFILES/vimrc"
 
 alias gp="git pull --rebase"
 alias stt="subl ."
@@ -18,6 +21,7 @@ alias django="python manage.py"
 alias django2="python2 manage.py"
 
 alias t="tmuxinator"
+alias mux="t start"
 
 alias v="vagrant"
 alias vl="vagrant list"

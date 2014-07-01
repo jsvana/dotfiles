@@ -44,7 +44,6 @@ Bundle 'gmarik/vundle'
 Bundle 'bling/vim-airline'
 Bundle 'bling/vim-bufferline'
 Bundle 'phleet/vim-arcanist'
-Bundle 'leafgarland/typescript-vim'
 Bundle 'jeetsukumaran/vim-buffergator'
 Bundle 'mattn/emmet-vim'
 Bundle 'Raimondi/delimitMate'
@@ -59,19 +58,24 @@ Bundle 'rosenfeld/conque-term'
 Bundle 'tomtom/tlib_vim'
 Bundle 'tomtom/viki_vim'
 Bundle 'kien/rainbow_parentheses.vim'
-Bundle 'guns/vim-clojure-static'
 Bundle 'bmchrist/a.vim'
 Bundle 'pct/present.vim'
-Bundle 'digitaltoad/vim-jade'
-Bundle 'jelera/vim-javascript-syntax'
 Bundle 'christoomey/vim-tmux-navigator'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'evidens/vim-twig'
 Bundle 'Keithbsmiley/investigate.vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'airblade/vim-gitgutter'
-Bundle 'kchmck/vim-coffee-script'
 Bundle 'scrooloose/nerdcommenter'
+Bundle 'nathanaelkane/vim-indent-guides'
+
+" Syntax and Theming
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'wting/rust.vim'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'evidens/vim-twig'
+Bundle 'guns/vim-clojure-static'
+Bundle 'jelera/vim-javascript-syntax'
+Bundle 'digitaltoad/vim-jade'
+Bundle 'leafgarland/typescript-vim'
 
 " tpope's my hero
 Bundle 'tpope/vim-repeat'
@@ -92,6 +96,14 @@ set background=dark
 colorscheme solarized
 highlight ColorColumn ctermbg=7
 highlight ColorColumn guibg=Gray
+
+" For indent-guides
+let g:indent_guides_auto_colors = 0
+let g:indent_guides_start_level = 1
+let g:indent_guides_guide_size = 1
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=8
+autocmd VimEnter * :IndentGuidesEnable
 
 set laststatus=2
 set encoding=utf-8

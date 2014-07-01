@@ -13,7 +13,9 @@ config_link hgrc
 
 config_link ackrc
 config_link dircolors
+config_link irbrc
 config_link irssi
+config_link editrc
 config_link musca_start
 config_link mutt
 config_link muttrc

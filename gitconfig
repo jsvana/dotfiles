@@ -20,7 +20,9 @@
 	cm = commit -m
 	cam = commit -am
 	br = branch
+	ls = branch
 	co = checkout
+	cd = checkout
 	df = diff
 	p = push
 	g = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
