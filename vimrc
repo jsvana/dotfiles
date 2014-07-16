@@ -29,61 +29,14 @@ set nrformats+=alpha
 set rnu
 set nu
 
-" Vundle is just so darn convenient.
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-
 " The futuuuuuuurrreeeeee
 set ttyfast
 
 set lazyredraw
 
-Bundle 'gmarik/vundle'
-
-" Each and every one is a little bundle of joy.
-Bundle 'bling/vim-airline'
-Bundle 'bling/vim-bufferline'
-Bundle 'phleet/vim-arcanist'
-Bundle 'jeetsukumaran/vim-buffergator'
-Bundle 'mattn/emmet-vim'
-Bundle 'Raimondi/delimitMate'
-Bundle 'kshenoy/vim-signature'
-Bundle 'scrooloose/syntastic'
-Bundle 'sjl/vitality.vim'
-Bundle 'sjl/clam.vim'
-Bundle 'scrooloose/nerdtree'
-Bundle 'markcornick/vim-vagrant'
-Bundle 'juvenn/mustache.vim'
-Bundle 'rosenfeld/conque-term'
-Bundle 'tomtom/tlib_vim'
-Bundle 'tomtom/viki_vim'
-Bundle 'kien/rainbow_parentheses.vim'
-Bundle 'bmchrist/a.vim'
-Bundle 'pct/present.vim'
-Bundle 'Keithbsmiley/investigate.vim'
-Bundle 'kien/ctrlp.vim'
-Bundle 'airblade/vim-gitgutter'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'nathanaelkane/vim-indent-guides'
-
-" Syntax and Theming
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'wting/rust.vim'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'evidens/vim-twig'
-Bundle 'guns/vim-clojure-static'
-Bundle 'jelera/vim-javascript-syntax'
-Bundle 'digitaltoad/vim-jade'
-Bundle 'leafgarland/typescript-vim'
-
-" tpope's my hero
-Bundle 'tpope/vim-repeat'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-fireplace'
-Bundle 'tpope/vim-eunuch'
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-sleuth'
-Bundle 'tpope/vim-speeddating'
+if filereadable(expand("~/.vimrc.bundles"))
+  source $DOTFILES/vimrc.bundles
+endif
 
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound

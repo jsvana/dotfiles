@@ -1,6 +1,0 @@
-set imap_user = "username@gmail.com"
-set imap_pass = "password"
-set smtp_url = "smtp://username@smtp.gmail.com:587/"
-set smtp_pass = "password"
-set from = "username@gmail.com"
-set realname = "User Name"

@@ -1,12 +1,6 @@
-[submodule "reslate"]
-	path = reslate
-	url = https://github.com/lunixbochs/reslate.git
 [submodule "vim/bundle/vundle"]
 	path = vim/bundle/vundle
 	url = https://github.com/gmarik/vundle.git
-[submodule "powerline-fonts"]
-	path = powerline-fonts
-	url = https://github.com/Lokaltog/powerline-fonts
 [submodule "tmuxinator"]
 	path = tmuxinator
 	url = https://github.com/aziz/tmuxinator

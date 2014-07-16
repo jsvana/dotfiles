@@ -1,0 +1,3 @@
+COPY_ALWAYS="hgrc gitconfig editrc inputrc zshrc"
+EXCLUDES="Brewfile *.md *.sh bin functions tmux_statusline"
+SYMLINK_DIRS="vim"
