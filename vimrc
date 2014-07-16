@@ -34,6 +34,38 @@ set ttyfast
 
 set lazyredraw
 
+set laststatus=2
+set encoding=utf-8
+
+filetype plugin indent on
+syntax on
+
+" "Intuitive" splitting
+set splitbelow
+set splitright
+
+" Let's show a little more when scrolling, eh?
+set scrolloff=5
+
+" Let's hope nobody else uses this directory and edits the same files...
+set directory=/tmp
+
+set autoread
+
+set shiftround
+
+set ttimeout ttimeoutlen=0
+
+" Remember last location in file
+set viminfo='10,\"100,:20,%,n~/.viminfo'
+
+" All the colors
+set t_Co=256
+
+"""""""""""
+""" Bundles
+"""""""""""
+
 if filereadable(expand($DOTFILES . "/vimrc.bundles"))
   source $DOTFILES/vimrc.bundles
 endif
@@ -57,24 +89,6 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=8
 autocmd VimEnter * :IndentGuidesEnable
 
-set laststatus=2
-set encoding=utf-8
-
-filetype plugin indent on
-syntax on
-
-set splitbelow
-set splitright
-
-" Let's show a little more when scrolling, eh?
-set scrolloff=5
-
-set directory=/tmp
-
-set autoread
-
-set shiftround
-
 " Easy block movement
 nmap <S-k> <S-{>
 nmap <S-j> <S-}>
@@ -85,9 +99,6 @@ nmap <S-=> <c-w><S-=>
 nmap <S--> <c-w><S-->
 vmap <S-=> <c-w><S-=>
 vmap <S--> <c-w><S-->
-
-"nmap <Space> :
-"vmap <Space> :
 
 """""""""""
 """ Leaders
@@ -156,14 +167,6 @@ set colorcolumn=81
 " Show whitespace
 set listchars=tab:▸\ ,eol:¬
 nmap <Leader>l :set list!<CR>
-
-set ttimeout ttimeoutlen=0
-
-" Remember last location in file
-set viminfo='10,\"100,:20,%,n~/.viminfo'
-
-" All the colors
-set t_Co=256
 
 let g:investigate_use_dash=1
 

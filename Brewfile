@@ -1,3 +1,7 @@
+# Dotfiles management
+tap thoughtbot/formulae
+install rcm
+
 # Install GNU core utilities (those that come with OS X are outdated)
 install coreutils
 # Install GNU `find`, `locate`, `updatedb`, and `xargs`, g-prefixed
