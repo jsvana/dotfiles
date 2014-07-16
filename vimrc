@@ -34,7 +34,7 @@ set ttyfast
 
 set lazyredraw
 
-if filereadable(expand("~/.vimrc.bundles"))
+if filereadable(expand($DOTFILES . "/vimrc.bundles"))
   source $DOTFILES/vimrc.bundles
 endif
 
