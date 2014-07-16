@@ -60,7 +60,6 @@ Bundle 'tomtom/viki_vim'
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'bmchrist/a.vim'
 Bundle 'pct/present.vim'
-Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'Keithbsmiley/investigate.vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'airblade/vim-gitgutter'
@@ -238,6 +237,15 @@ if exists('$ITERM_PROFILE')
 		let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 	endif
 endif
+
+" Unload hidden buffers
+function DeleteHiddenBuffers()
+	let tpbl=[]
+	call map(range(1, tabpagenr('$')), 'extend(tpbl, tabpagebuflist(v:val))')
+	for buf in filter(range(1, bufnr('$')), 'bufexists(v:val) && index(tpbl, v:val)==-1')
+		silent execute 'bunload' buf
+	endfor
+endfunction
 
 " Machine-specific configs
 if filereadable(expand("~/.vimrc.local"))
