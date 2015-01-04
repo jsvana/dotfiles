@@ -9,6 +9,7 @@ set autoindent
 " Two is good. We'll go with two.
 set tabstop=2
 set shiftwidth=2
+set expandtab
 
 " Search is now interactive!
 set incsearch
@@ -139,6 +140,12 @@ nmap <Leader>s :if (hlstate == 0) \| nohlsearch \| else \| set hlsearch \| endif
 " Quick buffer switching
 nmap <Leader>bn :bnext<CR>
 
+" Make
+nmap <Leader>mm :Make<CR>
+
+" Make results
+nmap <Leader>mr :Copen<CR>
+
 " Dash search
 nmap <silent> <Leader>d <Plug>DashSearch
 
@@ -162,7 +169,7 @@ autocmd BufWritePre * :%s/\s\+$//e
 autocmd BufWritePre * :%s/\n\{3,}/\r\r/e
 
 " More than a now-arbitrary limit is bad, you know.
-set colorcolumn=81
+"set colorcolumn=81
 
 " Show whitespace
 set listchars=tab:▸\ ,eol:¬
@@ -193,15 +200,6 @@ if exists('$ITERM_PROFILE')
 		let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 	endif
 endif
-
-" Unload hidden buffers
-function DeleteHiddenBuffers()
-	let tpbl=[]
-	call map(range(1, tabpagenr('$')), 'extend(tpbl, tabpagebuflist(v:val))')
-	for buf in filter(range(1, bufnr('$')), 'bufexists(v:val) && index(tpbl, v:val)==-1')
-		silent execute 'bunload' buf
-	endfor
-endfunction
 
 " Machine-specific configs
 if filereadable(expand("~/.vimrc.local"))

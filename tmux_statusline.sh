@@ -86,7 +86,12 @@ pacman_updates() {
 	fi
 }
 
+tmux_session_name() {
+  printf " #[fg=colour26]%s" "$(tmux display-message -p '#S')"
+}
+
 ssh_conn
+tmux_session_name
 wifi
 battery
 pacman_updates

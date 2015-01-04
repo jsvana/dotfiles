@@ -1,0 +1,22 @@
+# vim: ft=zsh
+
+function open-proj() {
+	if [[ -d "$PROJECTS/$1" ]]
+	then
+		if $(tmux has-session -t "$1" &> /dev/null)
+		then
+			if [ "$TERM" = "screen-256color" ] && [ -n "$TMUX" ]
+			then
+				tmux switch -t "$1"
+			else
+				tmux attach-session -t "$1"
+			fi
+		else
+			TMUX= tmux new-session -s "$1" -d
+			cd "$PROJECTS/$1"
+			tmux attach-session -t "$1"
+		fi
+	else
+		echo "Project does not exist." >&2
+	fi
+}

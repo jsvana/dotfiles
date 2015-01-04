@@ -33,6 +33,7 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'nathanaelkane/vim-indent-guides'
+Bundle 'lilydjwg/colorizer'
 
 " Syntax and Theming
 Bundle 'altercation/vim-colors-solarized'
@@ -43,6 +44,8 @@ Bundle 'guns/vim-clojure-static'
 Bundle 'jelera/vim-javascript-syntax'
 Bundle 'digitaltoad/vim-jade'
 Bundle 'leafgarland/typescript-vim'
+Bundle 'dougireton/vim-chef'
+Bundle 'slavapestov/factor'
 
 " tpope's my hero
 Bundle 'tpope/vim-repeat'
@@ -52,6 +55,7 @@ Bundle 'tpope/vim-eunuch'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-sleuth'
 Bundle 'tpope/vim-speeddating'
+Bundle 'tpope/vim-dispatch'
 
 if filereadable(expand("~/.vimrc.bundles.local"))
   source ~/.vimrc.bundles.local
