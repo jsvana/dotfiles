@@ -84,14 +84,6 @@ colorscheme base16-solarized
 highlight ColorColumn ctermbg=7
 highlight ColorColumn guibg=Gray
 
-" For indent-guides
-let g:indent_guides_auto_colors = 0
-let g:indent_guides_start_level = 1
-let g:indent_guides_guide_size = 1
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=0
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=8
-autocmd VimEnter * :IndentGuidesEnable
-
 " Easy block movement
 nmap <S-k> <S-{>
 nmap <S-j> <S-}>
@@ -177,6 +169,8 @@ autocmd BufWritePre * :%s/\n\{3,}/\r\r/e
 set listchars=tab:▸\ ,eol:¬
 nmap <Leader>l :set list!<CR>
 
+nnoremap <Leader>c <Plug>Colorizer
+
 let g:investigate_use_dash=1
 
 autocmd BufReadPost *
@@ -190,8 +184,8 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 
 " accordion.vim
 " Accordion 2
-nnoremap <leader>i :AccordionZoomIn<CR>
-nnoremap <leader>o :AccordionZoomOut<CR>
+nnoremap <Leader>i :AccordionZoomIn<CR>
+nnoremap <Leader>o :AccordionZoomOut<CR>
 
 " Expansions
 iab #i #include
