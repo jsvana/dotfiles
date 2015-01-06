@@ -78,7 +78,9 @@ au Syntax * RainbowParenthesesLoadBraces
 
 " Dat color scheme
 set background=dark
-colorscheme solarized
+let base16colorspace=256
+let g:airline_theme="base16"
+colorscheme base16-solarized
 highlight ColorColumn ctermbg=7
 highlight ColorColumn guibg=Gray
 
@@ -185,6 +187,11 @@ autocmd BufReadPost *
 " NERDTree stuff
 map <C-n> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+" accordion.vim
+" Accordion 2
+nnoremap <leader>i :AccordionZoomIn<CR>
+nnoremap <leader>o :AccordionZoomOut<CR>
 
 " Expansions
 iab #i #include

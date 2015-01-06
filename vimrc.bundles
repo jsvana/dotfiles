@@ -32,8 +32,8 @@ Bundle 'Keithbsmiley/investigate.vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'scrooloose/nerdcommenter'
-Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'lilydjwg/colorizer'
+Bundle 'mattboehm/vim-accordion'
 
 " Syntax and Theming
 Bundle 'altercation/vim-colors-solarized'
@@ -46,6 +46,7 @@ Bundle 'digitaltoad/vim-jade'
 Bundle 'leafgarland/typescript-vim'
 Bundle 'dougireton/vim-chef'
 Bundle 'slavapestov/factor'
+Bundle 'chriskempson/base16-vim'
 
 " tpope's my hero
 Bundle 'tpope/vim-repeat'

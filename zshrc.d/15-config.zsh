@@ -33,3 +33,5 @@ set -o vi
 
 bindkey -M vicmd 'j' history-substring-search-down
 bindkey -M vicmd 'k' history-substring-search-up
+
+. $DOTFILES/base16-shell/base16-solarized.dark.sh
