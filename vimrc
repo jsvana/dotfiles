@@ -202,6 +202,10 @@ if exists('$ITERM_PROFILE')
 	endif
 endif
 
+if has('mouse_sgr')
+	set ttymouse=sgr
+endif
+
 " Machine-specific configs
 if filereadable(expand("~/.vimrc.local"))
 	source ~/.vimrc.local
