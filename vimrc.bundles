@@ -3,63 +3,66 @@ if &compatible
 end
 
 filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+call plug#begin('~/.vim/plugged')
 
-Bundle 'gmarik/vundle'
+Plug 'gmarik/vundle'
 
 " Each and every one is a little bundle of joy.
-Bundle 'bling/vim-airline'
-Bundle 'bling/vim-bufferline'
-Bundle 'phleet/vim-arcanist'
-Bundle 'jeetsukumaran/vim-buffergator'
-Bundle 'mattn/emmet-vim'
-Bundle 'Raimondi/delimitMate'
-Bundle 'kshenoy/vim-signature'
-Bundle 'scrooloose/syntastic'
-Bundle 'sjl/vitality.vim'
-Bundle 'sjl/clam.vim'
-Bundle 'scrooloose/nerdtree'
-Bundle 'markcornick/vim-vagrant'
-Bundle 'juvenn/mustache.vim'
-Bundle 'rosenfeld/conque-term'
-Bundle 'tomtom/tlib_vim'
-Bundle 'tomtom/viki_vim'
-Bundle 'kien/rainbow_parentheses.vim'
-Bundle 'bmchrist/a.vim'
-Bundle 'pct/present.vim'
-Bundle 'Keithbsmiley/investigate.vim'
-Bundle 'kien/ctrlp.vim'
-Bundle 'airblade/vim-gitgutter'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'lilydjwg/colorizer'
-Bundle 'mattboehm/vim-accordion'
+Plug 'bling/vim-airline'
+Plug 'bling/vim-bufferline'
+Plug 'phleet/vim-arcanist'
+Plug 'jeetsukumaran/vim-buffergator'
+Plug 'mattn/emmet-vim'
+Plug 'Raimondi/delimitMate'
+Plug 'kshenoy/vim-signature'
+Plug 'scrooloose/syntastic'
+Plug 'sjl/vitality.vim'
+Plug 'sjl/clam.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'markcornick/vim-vagrant'
+Plug 'juvenn/mustache.vim'
+Plug 'rosenfeld/conque-term'
+Plug 'tomtom/tlib_vim'
+Plug 'tomtom/viki_vim'
+Plug 'kien/rainbow_parentheses.vim'
+Plug 'bmchrist/a.vim'
+Plug 'pct/present.vim'
+Plug 'Keithbsmiley/investigate.vim'
+Plug 'kien/ctrlp.vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'scrooloose/nerdcommenter'
+Plug 'lilydjwg/colorizer'
+Plug 'mattboehm/vim-accordion'
 
 " Syntax and Theming
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'wting/rust.vim'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'evidens/vim-twig'
-Bundle 'guns/vim-clojure-static'
-Bundle 'jelera/vim-javascript-syntax'
-Bundle 'digitaltoad/vim-jade'
-Bundle 'leafgarland/typescript-vim'
-Bundle 'dougireton/vim-chef'
-Bundle 'slavapestov/factor'
-Bundle 'chriskempson/base16-vim'
+Plug 'altercation/vim-colors-solarized'
+Plug 'wting/rust.vim'
+Plug 'kchmck/vim-coffee-script'
+Plug 'evidens/vim-twig'
+Plug 'guns/vim-clojure-static'
+Plug 'jelera/vim-javascript-syntax'
+Plug 'digitaltoad/vim-jade'
+Plug 'leafgarland/typescript-vim'
+Plug 'dougireton/vim-chef'
+Plug 'slavapestov/factor'
+Plug 'chriskempson/base16-vim'
+Plug 'w0ng/vim-hybrid'
+Plug 'edkolev/tmuxline.vim'
 
 " tpope's my hero
-Bundle 'tpope/vim-repeat'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-fireplace'
-Bundle 'tpope/vim-eunuch'
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-sleuth'
-Bundle 'tpope/vim-speeddating'
-Bundle 'tpope/vim-dispatch'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-fireplace'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-sleuth'
+Plug 'tpope/vim-speeddating'
+Plug 'tpope/vim-dispatch'
 
 if filereadable(expand("~/.vimrc.bundles.local"))
   source ~/.vimrc.bundles.local
 endif
+
+call plug#end()
 
 filetype on

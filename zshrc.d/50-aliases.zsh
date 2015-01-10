@@ -30,4 +30,4 @@ alias vup="vagrant up"
 alias vdown="vagrant halt"
 alias vp="vagrant provision"
 
-alias vinstall="vim +BundleInstall +qall"
+alias vinstall="vim +PlugInstall +qall"

@@ -17,6 +17,7 @@ ssh/authorized_keys
 ssh/psg
 
 vim/bundle/*
+vim/plugged/*
 
 zsh/functions.local
 

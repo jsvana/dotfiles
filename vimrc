@@ -78,9 +78,10 @@ au Syntax * RainbowParenthesesLoadBraces
 
 " Dat color scheme
 set background=dark
-let base16colorspace=256
-let g:airline_theme="base16"
-colorscheme base16-solarized
+let g:airline_left_sep=''
+let g:airline_right_sep=''
+let g:hybrid_use_iTerm_colors = 1
+colorscheme hybrid
 highlight ColorColumn ctermbg=7
 highlight ColorColumn guibg=Gray
 
