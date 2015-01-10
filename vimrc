@@ -80,7 +80,7 @@ au Syntax * RainbowParenthesesLoadBraces
 set background=dark
 let g:airline_left_sep=''
 let g:airline_right_sep=''
-let g:hybrid_use_iTerm_colors = 1
+let g:hybrid_use_iTerm_colors=1
 colorscheme hybrid
 highlight ColorColumn ctermbg=7
 highlight ColorColumn guibg=Gray
