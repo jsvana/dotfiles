@@ -47,7 +47,6 @@ Plug 'dougireton/vim-chef'
 Plug 'slavapestov/factor'
 Plug 'chriskempson/base16-vim'
 Plug 'w0ng/vim-hybrid'
-Plug 'edkolev/tmuxline.vim'
 
 " tpope's my hero
 Plug 'tpope/vim-repeat'
