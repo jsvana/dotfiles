@@ -88,20 +88,15 @@ highlight ColorColumn guibg=Gray
 " Easy block movement
 nmap <S-k> <S-{>
 nmap <S-j> <S-}>
-vmap <S-k> <S-{>
-vmap <S-j> <S-}>
 
 nmap <S-=> <c-w><S-=>
 nmap <S--> <c-w><S-->
-vmap <S-=> <c-w><S-=>
-vmap <S--> <c-w><S-->
 
 """""""""""
 """ Leaders
 """""""""""
 
 " Set leader
-let mapleader = "-"
 let mapleader = "\<Space>"
 let maplocalleader = "\\"
 
