@@ -1,2 +1,4 @@
 [ui]
 username = jsvana
+[alias]
+cm = commit -m
