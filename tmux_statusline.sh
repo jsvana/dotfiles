@@ -87,7 +87,7 @@ pacman_updates() {
 }
 
 tmux_session_name() {
-  printf " #[fg=colour26]%s" "$(tmux display-message -p '#S')"
+  printf " #[fg=colour13]%s" "$(tmux display-message -p '#S')"
 }
 
 ssh_conn

@@ -34,3 +34,6 @@
 	diff = diff --check
 	root = rev-parse --show-toplevel
 	yolo = !git commit -am \"`curl -s http://whatthecommit.com/index.txt`\"
+# Doesn't expand $DOTFILES, so I'll use ~/.dotfiles
+[include]
+	path = ~/.dotfiles/.gitconfig.local
