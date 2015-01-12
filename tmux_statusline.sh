@@ -47,18 +47,6 @@ hg_branch() {
   printf " #[fg=colour5]$(hg bookmark | grep '*' | awk '{ print $2; }')"
 }
 
-# Thanks @sjl
-hg_dirty() {
-  local mod=$(hg status --no-color 2> /dev/null \
-    | awk '$1 == "?" { unknown = 1 }
-        $1 != "?" { changed = 1 }
-        END {
-        if (changed) printf "!"
-        else if (unknown) printf "?"
-        }')
-  printf "#[fg=colour1]%s" "$local"
-}
-
 wifi() {
   local state="$(airport -I | grep state | awk '{print $2; }')"
 
@@ -119,7 +107,6 @@ if git root &> /dev/null; then
   git_pwd
 elif hg root &> /dev/null; then
   hg_branch
-  hg_dirty
   normal_pwd
 else
   normal_pwd
