@@ -105,9 +105,6 @@ if git root &> /dev/null; then
   git_since
   git_branch
   git_pwd
-elif hg root &> /dev/null; then
-  hg_branch
-  normal_pwd
 else
   normal_pwd
 fi
