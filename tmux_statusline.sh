@@ -44,7 +44,19 @@ git_pwd() {
 }
 
 hg_branch() {
-  printf " #[fg=colour5]$(hg bookmark | grep '*' | awk '{ print $2; }') "
+  printf " #[fg=colour5]$(hg bookmark | grep '*' | awk '{ print $2; }')"
+}
+
+# Thanks @sjl
+hg_dirty() {
+  local mod=$(hg status --no-color 2> /dev/null \
+    | awk '$1 == "?" { unknown = 1 }
+        $1 != "?" { changed = 1 }
+        END {
+        if (changed) printf "!"
+        else if (unknown) printf "?"
+        }')
+  printf "#[fg=colour1]%s" "$local"
 }
 
 wifi() {
@@ -84,12 +96,6 @@ ssh_conn() {
   fi
 }
 
-pacman_updates() {
-  if which pacman >/dev/null; then
-    printf " #[fg=colour25]%s updates" "$(cat /tmp/pacman)"
-  fi
-}
-
 tmux_session_name() {
   printf " #[fg=colour13]%s" "$(tmux display-message -p '#S')"
 }
@@ -98,11 +104,13 @@ normal_pwd() {
   printf " #[fg=colour4]%s" "$(short_pwd)"
 }
 
-ssh_conn
 tmux_session_name
-wifi
-battery
-pacman_updates
+if [[ -n "$SSH_CONNECTION" ]]; then
+  ssh_conn
+else
+  wifi
+  battery
+fi
 date_f
 if git root &> /dev/null; then
   git_status
@@ -111,6 +119,7 @@ if git root &> /dev/null; then
   git_pwd
 elif hg root &> /dev/null; then
   hg_branch
+  hg_dirty
   normal_pwd
 else
   normal_pwd
