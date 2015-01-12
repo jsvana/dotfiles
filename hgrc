@@ -2,3 +2,4 @@
 username = jsvana
 [alias]
 cm = commit -m
+st = status
