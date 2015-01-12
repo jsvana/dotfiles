@@ -88,9 +88,8 @@ highlight ColorColumn guibg=Gray
 " Easy block movement
 nmap <S-k> <S-{>
 nmap <S-j> <S-}>
-
-nmap <S-=> <c-w><S-=>
-nmap <S--> <c-w><S-->
+vmap <S-k> <S-{>
+vmap <S-j> <S-}>
 
 """""""""""
 """ Leaders
