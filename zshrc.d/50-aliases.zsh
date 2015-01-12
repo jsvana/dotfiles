@@ -20,9 +20,6 @@ alias :wq="exit"
 alias django="python manage.py"
 alias django2="python2 manage.py"
 
-alias t="tmuxinator"
-alias mux="t start"
-
 alias v="vagrant"
 alias vl="vagrant list"
 alias vssh="vagrant ssh"
