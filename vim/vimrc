@@ -67,8 +67,8 @@ set t_Co=256
 """ Bundles
 """""""""""
 
-if filereadable(expand($DOTFILES . "/vimrc.bundles"))
-  source $DOTFILES/vimrc.bundles
+if filereadable(expand($DOTFILES . "/vim/bundles.vim"))
+  source $DOTFILES/vim/bundles.vim
 endif
 
 au VimEnter * RainbowParenthesesToggle
@@ -99,9 +99,6 @@ vmap <S-j> <S-}>
 let mapleader = "\<Space>"
 let maplocalleader = "\\"
 
-" Easy tab creation
-nmap <Leader>t :tabnew<CR>
-
 " Easy splits
 nmap <Leader>V :vsp<CR>
 nmap <Leader>H :sp<CR>
@@ -116,9 +113,6 @@ nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
 nnoremap <silent> <Leader>+ :exe "vertical resize " . (winwidth(0) * 3/2)<CR>
 nnoremap <silent> <Leader>= :exe "vertical resize " . (winwidth(0) * 2/3)<CR>
 
-" Yay emmet
-nmap <TAB> <c-y>,
-
 " Easy .c(pp)/.h switching
 nmap <leader>a :A<CR>
 
@@ -126,23 +120,14 @@ nmap <leader>a :A<CR>
 let hlstate=0
 nmap <Leader>s :if (hlstate == 0) \| nohlsearch \| else \| set hlsearch \| endif \| let hlstate=1-hlstate<CR>
 
-" Quick buffer switching
-nmap <Leader>bn :bnext<CR>
-
 " Make
 nmap <Leader>mm :Make<CR>
 
 " Make results
 nmap <Leader>mr :Copen<CR>
 
-" Dash search
-nmap <silent> <Leader>d <Plug>DashSearch
-
 " Reload vimrc
 map <silent> <Leader>R :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
-
-" For iTerm2
-nmap ✠ <C-CR>
 
 " Brief crosshairs on the cursor
 function! CursorPing()
@@ -157,30 +142,16 @@ nmap <Leader><Leader> :call CursorPing()<CR>
 autocmd BufWritePre * :%s/\s\+$//e
 autocmd BufWritePre * :%s/\n\{3,}/\r\r/e
 
-" More than a now-arbitrary limit is bad, you know.
-"set colorcolumn=81
-
 " Show whitespace
 set listchars=tab:▸\ ,eol:¬
 nmap <Leader>l :set list!<CR>
 
 nnoremap <Leader>c <Plug>Colorizer
 
-let g:investigate_use_dash=1
-
 autocmd BufReadPost *
 	\ if line("'\"") > 0 && line("'\"") <= line("$") |
 	\   exe "normal! g`\"" |
 	\ endif
-
-" NERDTree stuff
-map <C-n> :NERDTreeToggle<CR>
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-
-" accordion.vim
-" Accordion 2
-nnoremap <Leader>i :AccordionZoomIn<CR>
-nnoremap <Leader>o :AccordionZoomOut<CR>
 
 " Expansions
 iab #i #include
@@ -200,6 +171,30 @@ endif
 if has('mouse_sgr')
 	set ttymouse=sgr
 endif
+
+" Unite.vim
+let g:unite_enable_start_insert = 1
+let g:unite_split_rule = "botright"
+let g:unite_force_overwrite_statusline = 0
+let g:unite_winheight = 10
+
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+call unite#filters#sorter_default#use(['sorter_rank'])
+
+nnoremap <C-P> :<C-u>Unite  -buffer-name=files   -start-insert buffer file_rec/async:!<cr>
+
+autocmd FileType unite call s:unite_settings()
+
+function! s:unite_settings()
+	let b:SuperTabDisabled=1
+	imap <buffer> <C-j>   <Plug>(unite_select_next_line)
+	imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
+	imap <silent><buffer><expr> <C-x> unite#do_action('split')
+	imap <silent><buffer><expr> <C-v> unite#do_action('vsplit')
+	imap <silent><buffer><expr> <C-t> unite#do_action('tabopen')
+
+	nmap <buffer> <ESC> <Plug>(unite_exit)
+endfunction
 
 " Machine-specific configs
 if filereadable(expand("~/.vimrc.local"))

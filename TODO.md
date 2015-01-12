@@ -1,2 +1,0 @@
-# TODO
-- Finish Slate config
