@@ -1,6 +1,10 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_cnt =8
 let g:netrw_dirhist_1='/home/jsvana/gatsby/config/seasons'
 let g:netrw_dirhist_2='/home/jsvana/gatsby/config/seasons/testing'
 let g:netrw_dirhist_3='/home/jsvana/.irssi'
 let g:netrw_dirhist_4='/home/jsvana/.configs'
+let g:netrw_dirhist_5='/Users/jsvana/go/src/gopkg.in/twik.v1/cmd'
+let g:netrw_dirhist_6='/Users/jsvana/go/src/gopkg.in/twik.v1/cmd/twik'
+let g:netrw_dirhist_7='/Users/jsvana/go/src/github.com/belak/seabird/bot'
+let g:netrw_dirhist_8='/Users/jsvana/go/src/gopkg.in/twik.v1/ast'
