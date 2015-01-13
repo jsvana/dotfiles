@@ -114,7 +114,7 @@ nnoremap <silent> <Leader>+ :exe "vertical resize " . (winwidth(0) * 3/2)<CR>
 nnoremap <silent> <Leader>= :exe "vertical resize " . (winwidth(0) * 2/3)<CR>
 
 " Easy .c(pp)/.h switching
-nmap <leader>a :A<CR>
+nmap <Leader>a :A<CR>
 
 " Toggle hlsearch
 let hlstate=0
@@ -127,7 +127,7 @@ nmap <Leader>mm :Make<CR>
 nmap <Leader>mr :Copen<CR>
 
 " Reload vimrc
-map <silent> <Leader>R :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
+map <silent> <Leader>R :source ~/.vim/vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
 " Brief crosshairs on the cursor
 function! CursorPing()
