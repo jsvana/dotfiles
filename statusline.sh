@@ -76,13 +76,19 @@ battery() {
 
 volume() {
   local vol=$(osascript -e 'get volume settings' | awk 'BEGIN { FS = ", " } ; { print $1 }' | awk 'BEGIN { FS = ":" } ; { print $2 }')
-  printf " #[fg=colour24]%s <" "$vol"
-  if [[ "$vol" -gt "80" ]]; then
-    printf ")))"
-  elif [[ "$vol" -gt "40" ]]; then
-    printf "))"
-  elif [[ "$vol" -gt "0" ]]; then
-    printf ")"
+  printf " #[fg=colour24]"
+  # Check if muted
+  if osascript -e 'get volume settings' | grep true >/dev/null; then
+    printf "muted"
+  else
+    printf "%s <" "$vol"
+    if [[ "$vol" -gt "80" ]]; then
+      printf ")))"
+    elif [[ "$vol" -gt "40" ]]; then
+      printf "))"
+    elif [[ "$vol" -gt "0" ]]; then
+      printf ")"
+    fi
   fi
 }
 

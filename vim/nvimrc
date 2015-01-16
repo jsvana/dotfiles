@@ -1,0 +1,202 @@
+set nocompatible
+
+set backspace=indent,eol,start
+
+set mouse=a
+
+set autoindent
+
+" Two is good. We'll go with two.
+set tabstop=2
+set shiftwidth=2
+set expandtab
+
+" Search is now interactive!
+set incsearch
+
+" Ew, folding
+set nofoldenable
+
+" Why show mode when we've got vim-airline?
+set noshowmode
+
+" Wrapping bad.
+set nowrap
+
+" Increment/decrement characters, too!
+set nrformats+=alpha
+
+" Well this is nice.
+set rnu
+set nu
+
+" The futuuuuuuurrreeeeee
+set ttyfast
+
+set lazyredraw
+
+set laststatus=2
+set encoding=utf-8
+
+filetype plugin indent on
+syntax on
+
+" "Intuitive" splitting
+set splitbelow
+set splitright
+
+" Let's show a little more when scrolling, eh?
+set scrolloff=5
+
+" Let's hope nobody else uses this directory and edits the same files...
+set directory=/tmp
+
+set autoread
+
+set shiftround
+
+set ttimeout ttimeoutlen=0
+
+" Remember last location in file
+set viminfo='10,\"100,:20,%,n~/.viminfo'
+
+" All the colors
+set t_Co=256
+
+"""""""""""
+""" Bundles
+"""""""""""
+
+if filereadable(expand($DOTFILES . "/vim/bundles.vim"))
+  source $DOTFILES/vim/bundles.vim
+endif
+
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+
+" Dat color scheme
+set background=dark
+let g:airline_left_sep=''
+let g:airline_right_sep=''
+let g:hybrid_use_iTerm_colors = 1
+colorscheme hybrid
+highlight ColorColumn ctermbg=7
+highlight ColorColumn guibg=Gray
+
+" Easy block movement
+nmap <S-k> <S-{>
+nmap <S-j> <S-}>
+vmap <S-k> <S-{>
+vmap <S-j> <S-}>
+
+"""""""""""
+""" Leaders
+"""""""""""
+
+" Set leader
+let mapleader = "\<Space>"
+let maplocalleader = "\\"
+
+" Easy splits
+nmap <Leader>V :vsp<CR>
+nmap <Leader>H :sp<CR>
+
+" Pasting is so much nicer when formatting is preserved.
+set pastetoggle=<F2>
+nmap <Leader>p <F2>
+
+" Split resizing
+nnoremap <silent> <Leader>_ :exe "resize " . (winheight(0) * 3/2)<CR>
+nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
+nnoremap <silent> <Leader>+ :exe "vertical resize " . (winwidth(0) * 3/2)<CR>
+nnoremap <silent> <Leader>= :exe "vertical resize " . (winwidth(0) * 2/3)<CR>
+
+" Easy .c(pp)/.h switching
+nmap <Leader>a :A<CR>
+
+" Toggle hlsearch
+let hlstate=0
+nmap <Leader>s :if (hlstate == 0) \| nohlsearch \| else \| set hlsearch \| endif \| let hlstate=1-hlstate<CR>
+
+" Make
+nmap <Leader>mm :Make<CR>
+
+" Make results
+nmap <Leader>mr :Copen<CR>
+
+" Reload vimrc
+map <silent> <Leader>R :source ~/.vim/vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
+
+" Brief crosshairs on the cursor
+function! CursorPing()
+	set cursorline cursorcolumn
+	redraw
+	sleep 100m
+	set nocursorline nocursorcolumn
+endfunction
+nmap <Leader><Leader> :call CursorPing()<CR>
+
+" Dat whitespace
+autocmd BufWritePre * :%s/\s\+$//e
+autocmd BufWritePre * :%s/\n\{3,}/\r\r/e
+
+" Show whitespace
+set listchars=tab:▸\ ,eol:¬
+nmap <Leader>l :set list!<CR>
+
+nnoremap <Leader>c <Plug>Colorizer
+
+autocmd BufReadPost *
+	\ if line("'\"") > 0 && line("'\"") <= line("$") |
+	\   exe "normal! g`\"" |
+	\ endif
+
+" Expansions
+iab #i #include
+iab #d #define
+
+" Set up cursor on insert
+if exists('$ITERM_PROFILE')
+	if exists('$TMUX')
+		let &t_SI = "\<Esc>[3 q"
+		let &t_EI = "\<Esc>[0 q"
+	else
+		let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+		let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+	endif
+endif
+
+if has('mouse_sgr')
+	set ttymouse=sgr
+endif
+
+" Unite.vim
+let g:unite_enable_start_insert = 1
+let g:unite_split_rule = "botright"
+let g:unite_force_overwrite_statusline = 0
+let g:unite_winheight = 10
+
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+call unite#filters#sorter_default#use(['sorter_rank'])
+
+nnoremap <C-P> :<C-u>Unite  -buffer-name=files   -start-insert buffer file_rec/async:!<cr>
+
+autocmd FileType unite call s:unite_settings()
+
+function! s:unite_settings()
+	let b:SuperTabDisabled=1
+	imap <buffer> <C-j>   <Plug>(unite_select_next_line)
+	imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
+	imap <silent><buffer><expr> <C-x> unite#do_action('split')
+	imap <silent><buffer><expr> <C-v> unite#do_action('vsplit')
+	imap <silent><buffer><expr> <C-t> unite#do_action('tabopen')
+
+	nmap <buffer> <ESC> <Plug>(unite_exit)
+endfunction
+
+" Machine-specific configs
+if filereadable(expand("~/.vimrc.local"))
+	source ~/.vimrc.local
+endif
