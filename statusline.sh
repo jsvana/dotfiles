@@ -76,7 +76,7 @@ battery() {
 
 volume() {
   local vol=$(osascript -e 'get volume settings' | awk 'BEGIN { FS = ", " } ; { print $1 }' | awk 'BEGIN { FS = ":" } ; { print $2 }')
-  printf " #[fg=colour15]%s <" "$vol"
+  printf " #[fg=colour24]%s <" "$vol"
   if [[ "$vol" -gt "80" ]]; then
     printf ")))"
   elif [[ "$vol" -gt "40" ]]; then
