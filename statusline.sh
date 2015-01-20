@@ -74,6 +74,24 @@ battery() {
   fi
 }
 
+volume() {
+  local vol=$(osascript -e 'get volume settings' | awk 'BEGIN { FS = ", " } ; { print $1 }' | awk 'BEGIN { FS = ":" } ; { print $2 }')
+  printf " #[fg=colour24]"
+  # Check if muted
+  if osascript -e 'get volume settings' | grep true >/dev/null; then
+    printf "muted"
+  else
+    printf "%s <" "$vol"
+    if [[ "$vol" -gt "80" ]]; then
+      printf ")))"
+    elif [[ "$vol" -gt "40" ]]; then
+      printf "))"
+    elif [[ "$vol" -gt "0" ]]; then
+      printf ")"
+    fi
+  fi
+}
+
 date_f() {
   printf " #[fg=colour9]%s" "$(date +"%d %b %H:%M")"
 }
@@ -98,6 +116,7 @@ if [[ -n "$SSH_CONNECTION" ]]; then
 else
   wifi
   battery
+  volume
 fi
 date_f
 if git root &> /dev/null; then
