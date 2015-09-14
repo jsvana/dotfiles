@@ -1,9 +1,8 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
-let g:netrw_dirhist_1='/home/jsvana/gatsby/config/seasons'
-let g:netrw_dirhist_2='/home/jsvana/gatsby/config/seasons/testing'
-let g:netrw_dirhist_3='/home/jsvana/.irssi'
-let g:netrw_dirhist_4='/home/jsvana/.configs'
-let g:netrw_dirhist_5='/Users/jsvana/go/src/gopkg.in/twik.v1'
-let g:netrw_dirhist_6='/Users/jsvana/go/src/gopkg.in/twik.v1/cmd'
-let g:netrw_dirhist_7='/Users/jsvana/go/src/gopkg.in/twik.v1/cmd/twik'
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/data/users/jsvana/fbsource/fbcode/experimental/jsvana/logtool'
+let g:netrw_dirhist_2='/data/users/jsvana/fbsource/fbcode/cache/utils/ncs/if'
+let g:netrw_dirhist_3='/data/users/jsvana/fbsource/fbcode/libfb'
+let g:netrw_dirhist_4='/data/users/jsvana/fbsource/fbcode/cache/utils/ncs/if'
+let g:netrw_dirhist_5='/data/users/jsvana/fbsource/fbcode/hbase/scripts'
+let g:netrw_dirhist_6='/data/users/jsvana/fbsource/fbcode/hbase/scripts/bin'

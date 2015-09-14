@@ -2,7 +2,9 @@ set nocompatible
 
 set backspace=indent,eol,start
 
-set mouse=a
+if has('mouse')
+	set mouse=a
+endif
 
 set autoindent
 
@@ -10,6 +12,9 @@ set autoindent
 set tabstop=2
 set shiftwidth=2
 set expandtab
+
+" Make tilde an operator (~w changes the case of a word)
+set tildeop
 
 " Search is now interactive!
 set incsearch
@@ -77,11 +82,14 @@ au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
 " Dat color scheme
-set background=dark
-let g:airline_left_sep=''
-let g:airline_right_sep=''
-let g:hybrid_use_iTerm_colors=1
-colorscheme hybrid
+"set background=dark
+"let g:airline_left_sep=''
+"let g:airline_right_sep=''
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '◀'
+"let g:hybrid_use_iTerm_colors=1
+"colorscheme hybrid
+colorscheme anderson
 highlight ColorColumn ctermbg=7
 highlight ColorColumn guibg=Gray
 
@@ -98,6 +106,12 @@ vmap <S-j> <S-}>
 " Set leader
 let mapleader = "\<Space>"
 let maplocalleader = "\\"
+
+" Easy write
+nmap <Leader>w :w<CR>
+
+" Enter visual line mode
+nmap <Leader><Leader> V
 
 " Easy splits
 nmap <Leader>V :vsp<CR>
@@ -140,7 +154,6 @@ nmap <Leader><Leader> :call CursorPing()<CR>
 
 " Dat whitespace
 autocmd BufWritePre * :%s/\s\+$//e
-autocmd BufWritePre * :%s/\n\{3,}/\r\r/e
 
 " Show whitespace
 set listchars=tab:▸\ ,eol:¬
@@ -171,6 +184,13 @@ endif
 if has('mouse_sgr')
 	set ttymouse=sgr
 endif
+
+" Highlight long lines
+au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+
+" Markdown
+au BufNewFile,BufReadPost *.md set filetype=markdown
+let g:markdown_fenced_languages = ['coffee', 'css', 'erb=eruby', 'javascript', 'js=javascript', 'json=javascript', 'ruby', 'sass', 'xml', 'html']
 
 " Unite.vim
 let g:unite_enable_start_insert = 1

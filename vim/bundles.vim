@@ -19,6 +19,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'lilydjwg/colorizer'
 Plug 'Shougo/vimproc.vim'
 Plug 'Shougo/unite.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 
 " Syntax and Theming
 Plug 'wting/rust.vim'
@@ -31,6 +32,9 @@ Plug 'leafgarland/typescript-vim'
 Plug 'dougireton/vim-chef'
 Plug 'w0ng/vim-hybrid'
 Plug 'markcornick/vim-vagrant'
+Plug 'solarnz/thrift.vim'
+Plug 'flazz/vim-colorschemes'
+Plug 'gilgigilgil/anderson.vim'
 
 " tpope's my hero
 Plug 'tpope/vim-repeat'

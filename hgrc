@@ -1,5 +1,11 @@
 [ui]
-username = jsvana
+username = jsvana <jsvana@fb.com>
+merge = vimdiff
+[extensions]
+hgext.extdiff =
+[merge-tools]
+vimdiff.executable = vim
+vimdiff.args = -d $base $local $output $other +close +close
 [alias]
 cm = commit -m
 st = status
