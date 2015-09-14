@@ -43,8 +43,37 @@ alias ls="ls --color=auto"
 
 autoload colors; colors
 
-PROMPT="%(?/%{$reset_color%}/%{$fg[red]%})%(!.#.:)%{$reset_color%} "
-RPROMPT="$(date +'%D %T')"
+hg_branch () {
+  # Add a quick n' dirty optimization to make hg bookmark results faster
+  if [ ! -e "$HOME/tmp/lastdir" ] || [ "$(awk '{print $1}' "$HOME/tmp/lastdir")" != "$PWD" ]; then
+    if hg branch &>/dev/null; then
+      text="%{$fg[blue]%}$(hg bookmark | grep '*' | awk '{print $2}')"
+    else
+      text=""
+    fi
+    echo "$PWD $text" > "$HOME/tmp/lastdir"
+  fi
+  awk '{print $2}' "$HOME/tmp/lastdir"
+}
+
+hg () {
+  if [[ $1 == "book" ]]; then
+    command hg "$@"
+    hg_branch &>/dev/null
+  else
+    command hg "$@"
+  fi
+}
+
+cwd () {
+  dir="${PWD/#$HOME/~}"
+  dir="${dir//\/data\/users\/jsvana/~}"
+  echo "$dir"
+}
+
+PROMPT='%{$fg[green]%}%n@${HOSTNAME//.facebook.com/} %{$fg[cyan]%}$(cwd) $(hg_branch)
+%(?/%{$reset_color%}/%{$fg[red]%})%(!.#.:)%{$reset_color%} '
+RPROMPT="%{$fg[magenta]%}$(date +'%D %T')%{$reset_color%}"
 
 autoload -Uz compinit
 compinit -u

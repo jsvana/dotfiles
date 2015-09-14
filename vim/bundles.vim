@@ -5,8 +5,6 @@ end
 filetype off
 call plug#begin('~/.vim/plugged')
 
-Plug 'gmarik/vundle'
-
 " Each and every one is a little bundle of joy.
 Plug 'bling/vim-airline'
 Plug 'kshenoy/vim-signature'
