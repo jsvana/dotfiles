@@ -2,7 +2,7 @@ export DOTFILES="$HOME/.dotfiles"
 export PATH="/usr/local/bin:$DOTFILES/bin:$HOME/go/bin:/usr/local/share/npm/bin:$HOME/.rbenv/bin:$PATH"
 
 export CLICOLOR=true
-export EDITOR="vim"
+export EDITOR="/usr/bin/vim"
 export HISTFILE="$HOME/.zsh-history"
 export HISTSIZE=SAVEHIST=10240
 export LESSHISTFILE="-" # disable less history
@@ -25,8 +25,9 @@ setopt PROMPT_SUBST
 
 unsetopt CASE_GLOB
 
+KEYTIMEOUT=1
+
 zle -N newtab
-zle -N reset-prompt
 
 set -o vi
 
@@ -36,47 +37,73 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 # pasting with tabs doesn't perform completion
 zstyle ':completion:*' insert-tab pending
 
+zstyle ':completion:*' menu select
+
+bindkey '^[[Z' reverse-menu-complete
+
 # better killall completion
 zstyle ':completion:*:killall:*' command 'ps -u $USER -o cmd'
 
 alias ls="ls --color=auto"
 
+# Goodbye ^S and ^Q
+stty -ixon
+
 autoload colors; colors
-
-hg_branch () {
-  # Add a quick n' dirty optimization to make hg bookmark results faster
-  if [ ! -e "$HOME/tmp/lastdir" ] || [ "$(awk '{print $1}' "$HOME/tmp/lastdir")" != "$PWD" ]; then
-    if hg branch &>/dev/null; then
-      text="%{$fg[blue]%}$(hg bookmark | grep '*' | awk '{print $2}')"
-    else
-      text=""
-    fi
-    echo "$PWD $text" > "$HOME/tmp/lastdir"
-  fi
-  awk '{print $2}' "$HOME/tmp/lastdir"
-}
-
-hg () {
-  if [[ $1 == "book" ]]; then
-    command hg "$@"
-    hg_branch &>/dev/null
-  else
-    command hg "$@"
-  fi
-}
 
 cwd () {
   dir="${PWD/#$HOME/~}"
-  dir="${dir//\/data\/users\/jsvana/~}"
+  dir="${dir//\/data\/users\/$USER/~}"
   echo "$dir"
 }
 
-PROMPT='%{$fg[green]%}%n@${HOSTNAME//.facebook.com/} %{$fg[cyan]%}$(cwd) $(hg_branch)
-%(?/%{$reset_color%}/%{$fg[red]%})%(!.#.:)%{$reset_color%} '
-RPROMPT="%{$fg[magenta]%}$(date +'%D %T')%{$reset_color%}"
+export LS_COLORS="no=00:\
+fi=00:\
+di=01;36:\
+ln=01;36:\
+pi=40;33:\
+so=01;35:\
+do=01;35:\
+bd=40;33;01:\
+cd=40;33;01:\
+or=40;31;01:\
+ex=01;32:\
+*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.zip=01;31:*.gz=01;31:*.bz2=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:\
+*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:\
+*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.avi=01;35:\
+*.ogg=01;35:*.mp3=01;35:*.wav=01;35:\
+";
+
+# Source Facebook definitions
+if [ -f /mnt/vol/engshare/admin/scripts/master.zshrc ]; then
+	. /mnt/vol/engshare/admin/scripts/master.zshrc
+fi
+
+. $ADMIN_SCRIPTS/scm-prompt
+
+PROMPT='%{$fg[green]%}%n@${HOSTNAME//.facebook.com/} %{$fg[cyan]%}$(cwd)%{$fg[yellow]%}$(_dotfiles_scm_info)
+%{$fg[blue]%}$(vi_mode)%(?/%{$reset_color%}/%{$fg[red]%})%(!.#.:)%{$reset_color%} '
+
+function vi_mode() {
+  local mode
+  mode="${${KEYMAP/vicmd/N}/(main|viins)/I}"
+  if [ -z "$mode" ]; then
+    echo "I"
+  else
+    echo "$mode"
+  fi
+}
+
+function zle-line-init zle-keymap-select {
+  zle reset-prompt
+}
+zle -N zle-line-init
+zle -N zle-keymap-select
 
 autoload -Uz compinit
 compinit -u
+
+alias -r vim='vim -O'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 

@@ -9,3 +9,5 @@ vimdiff.args = -d $base $local $output $other +close +close
 [alias]
 cm = commit -m
 st = status
+[http_proxy]
+host = fwdproxy:8080
