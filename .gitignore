@@ -18,6 +18,7 @@ ssh/psg
 
 vim/bundle/*
 vim/plugged/*
+vim/local_settings.vim
 
 zsh/functions.local
 

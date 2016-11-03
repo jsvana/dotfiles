@@ -2,10 +2,6 @@ set nocompatible
 
 set backspace=indent,eol,start
 
-if has('mouse')
-	set mouse=a
-endif
-
 set cindent
 
 " Four is good. We'll go with four.
@@ -79,11 +75,28 @@ colorscheme hybrid
 highlight ColorColumn ctermbg=7
 highlight ColorColumn guibg=Gray
 
+"colorscheme tender
+"let g:tender_airline = 1
+"let g:airline_theme = 'tender'
+
 " Easy block movement
 nmap <S-k> <S-{>
 nmap <S-j> <S-}>
 vmap <S-k> <S-{>
 vmap <S-j> <S-}>
+
+" Goodbye, help key
+noremap  <F1> :set invfullscreen<CR>
+inoremap <F1> <ESC>:set invfullscreen<CR>a
+
+vnoremap < <gv
+vnoremap > >gv
+
+nnoremap G Gz.
+
+" Make search always center on screen
+nmap n nzz
+nmap N Nzz
 
 " Set leader
 let mapleader = "\<Space>"
@@ -94,6 +107,8 @@ nmap <Leader>p <F2>
 
 " Toggle hlsearch
 nmap <Leader>s :set hlsearch!<CR>
+
+nmap <Leader>f :FZF<CR>
 
 " Reload vimrc
 map <silent> <Leader>R :source ~/.vim/vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
@@ -107,9 +122,6 @@ autocmd BufReadPost *
 	\ if line("'\"") > 0 && line("'\"") <= line("$") |
 	\   exe "normal! g`\"" |
 	\ endif
-
-" Highlight long lines
-au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 
 if has('mouse_sgr')
 	set ttymouse=sgr
