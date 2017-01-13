@@ -4,11 +4,11 @@ set backspace=indent,eol,start
 
 set cindent
 
-" Four is good. We'll go with four.
+" Two is good. We'll go with two.
 set expandtab
-set tabstop=4
+set tabstop=2
 set softtabstop=0
-set shiftwidth=4
+set shiftwidth=2
 set smarttab
 
 " Make tilde an operator (~w changes the case of a word)
@@ -117,6 +117,7 @@ nnoremap <Leader><Leader> za
 
 " Dat whitespace
 autocmd BufWritePre * :%s/\s\+$//e
+autocmd BufWritePost *.cpp,*.h silent exec "!clang-format -i %:p"
 
 autocmd BufReadPost *
 	\ if line("'\"") > 0 && line("'\"") <= line("$") |

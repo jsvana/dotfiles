@@ -56,6 +56,9 @@ Plug 'jacoborus/tender'
 " Arcanist inline
 Plug 'jlfwong/vim-arcanist'
 
+" ChaiScript highlighting
+Plug 'ChaiScript/vim-chaiscript'
+
 if filereadable(expand("~/.vimrc.bundles.local"))
   source ~/.vimrc.bundles.local
 endif

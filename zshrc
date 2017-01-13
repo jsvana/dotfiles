@@ -1,5 +1,5 @@
 export DOTFILES="$HOME/.dotfiles"
-export PATH="/usr/local/bin:$DOTFILES/bin:$HOME/go/bin:/usr/local/share/npm/bin:$HOME/.rbenv/bin:$PATH"
+export PATH="$HOME/bin:/usr/local/bin:$DOTFILES/bin:$HOME/go/bin:/usr/local/share/npm/bin:$HOME/.rbenv/bin:$PATH"
 
 export CLICOLOR=true
 export EDITOR="/usr/bin/vim"
@@ -74,14 +74,7 @@ ex=01;32:\
 *.ogg=01;35:*.mp3=01;35:*.wav=01;35:\
 ";
 
-# Source Facebook definitions
-if [ -f /mnt/vol/engshare/admin/scripts/master.zshrc ]; then
-	. /mnt/vol/engshare/admin/scripts/master.zshrc
-fi
-
-. $ADMIN_SCRIPTS/scm-prompt
-
-PROMPT='%{$fg[green]%}%n@${HOSTNAME//.facebook.com/} %{$fg[cyan]%}$(cwd)%{$fg[yellow]%}$(_dotfiles_scm_info)
+PROMPT='%{$fg[green]%}%n@$(hostname) %{$fg[cyan]%}$(cwd)%{$fg[yellow]%}
 %{$fg[blue]%}$(vi_mode)%(?/%{$reset_color%}/%{$fg[red]%})%(!.#.:)%{$reset_color%} '
 
 function vi_mode() {
