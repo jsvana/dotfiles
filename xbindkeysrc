@@ -1,0 +1,10 @@
+"amixer -c 0 sset Master 3+"
+    XF86AudioRaiseVolume
+"amixer -c 0 sset Master 3-"
+    XF86AudioLowerVolume
+"amixer -c 0 sset Master toggle"
+    XF86AudioMute
+"sudo brightness up"
+    XF86MonBrightnessUp
+"sudo brightness down"
+    XF86MonBrightnessDown
