@@ -30,7 +30,8 @@
 *color15: #C5C8C6
 
 urxvt.scrollBar: false
-urxvt*font: xft:Source Code Pro:style=Regular:size=10
+!urxvt*font: xft:Source Code Pro:style=Regular:size=10
+urxvt*font: xft:xos4 Terminus:size=10
 
 urxvt.perl-ext-common: default,matcher,selection-to-clipboard
 
