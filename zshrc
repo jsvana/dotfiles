@@ -8,6 +8,8 @@ export HISTSIZE=SAVEHIST=10240
 export LESSHISTFILE="-" # disable less history
 export LSCOLORS="exfxcxdxbxegedabagacad"
 
+export GOPATH="$HOME/go"
+
 setopt APPEND_HISTORY
 setopt AUTO_CD
 setopt COMPLETE_ALIASES
@@ -99,6 +101,8 @@ compinit -u
 alias -r vim='vim -O'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+alias screenshot="deepin-screenshot -s $HOME/Pictures/screenshots"
 
 if [[ -a "$HOME/.zshrc.local" ]]; then
   source "$HOME/.zshrc.local"

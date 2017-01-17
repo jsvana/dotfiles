@@ -33,6 +33,8 @@ set nu
 " The futuuuuuuurrreeeeee
 set ttyfast
 
+set sidescroll=1
+
 set lazyredraw
 
 set laststatus=2
@@ -58,6 +60,16 @@ set autoread
 set shiftround
 
 set ttimeout ttimeoutlen=0
+
+let g:netrw_liststyle = 3
+
+" Banners are dumb
+let g:netrw_banner = 0
+
+" Open files in a vertical split because it's better that way
+let g:netrw_browse_split = 2
+
+let g:netrw_winsize = 10
 
 " Remember last location in file
 set viminfo='10,\"100,:20,%,n~/.viminfo'
@@ -115,6 +127,9 @@ map <silent> <Leader>R :source ~/.vim/vimrc<CR>:filetype detect<CR>:exe ":echo '
 
 nnoremap <Leader><Leader> za
 
+" Reload vimrc
+map <silent> <Leader>R :source ~/.vim/vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
+
 " Dat whitespace
 autocmd BufWritePre * :%s/\s\+$//e
 autocmd BufWritePost *.cpp,*.h silent exec "!clang-format -i %:p"
@@ -127,6 +142,9 @@ autocmd BufReadPost *
 if has('mouse_sgr')
 	set ttymouse=sgr
 endif
+
+autocmd BufWritePost *.cpp,*.h silent exec "!clang-format -i %:p"
+autocmd BufWritePost *.go silent exec "!gofmt -w %:p"
 
 " Make Python indenting behave
 let g:pyindent_open_paren = '&sw'

@@ -2,20 +2,24 @@ set nocompatible
 
 set backspace=indent,eol,start
 
-set mouse=a
+if has('mouse')
+	set mouse=a
+endif
 
-set autoindent
+set cindent
 
 " Two is good. We'll go with two.
-set tabstop=2
-set shiftwidth=2
 set expandtab
+set tabstop=2
+set softtabstop=0
+set shiftwidth=2
+set smarttab
+
+" Make tilde an operator (~w changes the case of a word)
+set tildeop
 
 " Search is now interactive!
 set incsearch
-
-" Ew, folding
-set nofoldenable
 
 " Why show mode when we've got vim-airline?
 set noshowmode
@@ -33,10 +37,14 @@ set nu
 " The futuuuuuuurrreeeeee
 set ttyfast
 
+set sidescroll=1
+
 set lazyredraw
 
 set laststatus=2
 set encoding=utf-8
+
+set indentkeys-=:
 
 filetype plugin indent on
 syntax on
@@ -63,24 +71,12 @@ set viminfo='10,\"100,:20,%,n~/.viminfo'
 " All the colors
 set t_Co=256
 
-"""""""""""
-""" Bundles
-"""""""""""
-
-if filereadable(expand($DOTFILES . "/vim/bundles.vim"))
-  source $DOTFILES/vim/bundles.vim
+if filereadable(expand($DOTFILES . "/vim/plugins.vim"))
+  source $DOTFILES/vim/plugins.vim
 endif
-
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
 
 " Dat color scheme
 set background=dark
-let g:airline_left_sep=''
-let g:airline_right_sep=''
-let g:hybrid_use_iTerm_colors = 1
 colorscheme hybrid
 highlight ColorColumn ctermbg=7
 highlight ColorColumn guibg=Gray
@@ -91,112 +87,41 @@ nmap <S-j> <S-}>
 vmap <S-k> <S-{>
 vmap <S-j> <S-}>
 
-"""""""""""
-""" Leaders
-"""""""""""
-
 " Set leader
 let mapleader = "\<Space>"
-let maplocalleader = "\\"
-
-" Easy splits
-nmap <Leader>V :vsp<CR>
-nmap <Leader>H :sp<CR>
 
 " Pasting is so much nicer when formatting is preserved.
 set pastetoggle=<F2>
 nmap <Leader>p <F2>
 
-" Split resizing
-nnoremap <silent> <Leader>_ :exe "resize " . (winheight(0) * 3/2)<CR>
-nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
-nnoremap <silent> <Leader>+ :exe "vertical resize " . (winwidth(0) * 3/2)<CR>
-nnoremap <silent> <Leader>= :exe "vertical resize " . (winwidth(0) * 2/3)<CR>
-
-" Easy .c(pp)/.h switching
-nmap <Leader>a :A<CR>
-
 " Toggle hlsearch
-let hlstate=0
-nmap <Leader>s :if (hlstate == 0) \| nohlsearch \| else \| set hlsearch \| endif \| let hlstate=1-hlstate<CR>
-
-" Make
-nmap <Leader>mm :Make<CR>
-
-" Make results
-nmap <Leader>mr :Copen<CR>
+nmap <Leader>s :set hlsearch!<CR>
 
 " Reload vimrc
 map <silent> <Leader>R :source ~/.vim/vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
-" Brief crosshairs on the cursor
-function! CursorPing()
-	set cursorline cursorcolumn
-	redraw
-	sleep 100m
-	set nocursorline nocursorcolumn
-endfunction
-nmap <Leader><Leader> :call CursorPing()<CR>
+nnoremap <Leader><Leader> za
 
 " Dat whitespace
 autocmd BufWritePre * :%s/\s\+$//e
-autocmd BufWritePre * :%s/\n\{3,}/\r\r/e
-
-" Show whitespace
-set listchars=tab:▸\ ,eol:¬
-nmap <Leader>l :set list!<CR>
-
-nnoremap <Leader>c <Plug>Colorizer
 
 autocmd BufReadPost *
 	\ if line("'\"") > 0 && line("'\"") <= line("$") |
 	\   exe "normal! g`\"" |
 	\ endif
 
-" Expansions
-iab #i #include
-iab #d #define
-
-" Set up cursor on insert
-if exists('$ITERM_PROFILE')
-	if exists('$TMUX')
-		let &t_SI = "\<Esc>[3 q"
-		let &t_EI = "\<Esc>[0 q"
-	else
-		let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-		let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-	endif
-endif
-
 if has('mouse_sgr')
 	set ttymouse=sgr
 endif
 
-" Unite.vim
-let g:unite_enable_start_insert = 1
-let g:unite_split_rule = "botright"
-let g:unite_force_overwrite_statusline = 0
-let g:unite_winheight = 10
+autocmd BufWritePost *.cpp.*.h silent exec "!clang-format -i %:p"
 
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
-call unite#filters#sorter_default#use(['sorter_rank'])
-
-nnoremap <C-P> :<C-u>Unite  -buffer-name=files   -start-insert buffer file_rec/async:!<cr>
-
-autocmd FileType unite call s:unite_settings()
-
-function! s:unite_settings()
-	let b:SuperTabDisabled=1
-	imap <buffer> <C-j>   <Plug>(unite_select_next_line)
-	imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
-	imap <silent><buffer><expr> <C-x> unite#do_action('split')
-	imap <silent><buffer><expr> <C-v> unite#do_action('vsplit')
-	imap <silent><buffer><expr> <C-t> unite#do_action('tabopen')
-
-	nmap <buffer> <ESC> <Plug>(unite_exit)
-endfunction
+" Make Python indenting behave
+let g:pyindent_open_paren = '&sw'
+let g:pyindent_nested_paren = '&sw'
+let g:pyindent_continue = '&sw'
 
 " Machine-specific configs
-if filereadable(expand("~/.vimrc.local"))
-	source ~/.vimrc.local
+if filereadable(expand($DOTFILES . "/vim/local_settings.vim"))
+  source $DOTFILES/vim/local_settings.vim
 endif

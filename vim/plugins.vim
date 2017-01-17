@@ -22,6 +22,13 @@ Plug 'kshenoy/vim-signature'
 " Python folding
 Plug 'tmhedberg/SimpylFold'
 
+" Fuzzy finding
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+
+" EditorConfig (http://editorconfig.org/)
+Plug 'editorconfig/editorconfig-vim'
+
 " Don't fold docstrings
 let g:SimpylFold_fold_docstring = 0
 

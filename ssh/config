@@ -22,8 +22,8 @@ Host iri
 	HostName iri.lifecyclesolutionsgroup.com
 	Port 49931
 
-Host github.com
-  ProxyCommand nc -X connect -x fwdproxy:8080 %h %p
+Host dev
+    Hostname devbig570.prn1.facebook.com
 
 Host *
   SendEnv LANG LC_CTYPE LC_NUMERIC LC_TIME LC_COLLATE LC_MONETARY LC_MESSAGES

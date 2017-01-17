@@ -1,7 +1,7 @@
 [core]
 	editor = vim
 	excludesfile = ~/.gitignore
-	pager = less
+	pager = diff-so-fancy | less --tabs=4 -RFX
 [color]
 	ui = auto
 [web]
@@ -34,5 +34,3 @@
 	diff = diff --check
 	root = rev-parse --show-toplevel
 	yolo = !git commit -am \"`curl -s http://whatthecommit.com/index.txt`\"
-[include]
-	path = ~/.gitconfig.local
