@@ -42,6 +42,9 @@ Plug 'nvie/vim-flake8'
 " Syntax error highlighting
 Plug 'scrooloose/syntastic'
 
+" Offline docs
+Plug 'KabbAmine/zeavim.vim'
+
 let g:syntastic_stl_format = "[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]"
 let g:syntastic_check_on_open = 1
 let g:syntastic_python_checkers = ['flake8']
@@ -53,6 +56,9 @@ Plug 'dougireton/vim-chef'
 
 " Better thriftfile hilighting
 Plug 'solarnz/thrift.vim'
+
+" GLSL shader hilighting
+Plug 'tikhomirov/vim-glsl'
 
 " Best colorscheme
 Plug 'w0ng/vim-hybrid'

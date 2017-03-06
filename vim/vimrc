@@ -132,7 +132,6 @@ map <silent> <Leader>R :source ~/.vim/vimrc<CR>:filetype detect<CR>:exe ":echo '
 
 " Dat whitespace
 autocmd BufWritePre * :%s/\s\+$//e
-autocmd BufWritePost *.cpp,*.h silent exec "!clang-format -i %:p"
 
 autocmd BufReadPost *
 	\ if line("'\"") > 0 && line("'\"") <= line("$") |
@@ -143,7 +142,7 @@ if has('mouse_sgr')
 	set ttymouse=sgr
 endif
 
-autocmd BufWritePost *.cpp,*.h silent exec "!clang-format -i %:p"
+"autocmd BufWritePost *.cpp,*.h silent exec "!clang-format -i %:p"
 autocmd BufWritePost *.go silent exec "!gofmt -w %:p"
 
 " Make Python indenting behave
