@@ -76,7 +76,7 @@ ex=01;32:\
 *.ogg=01;35:*.mp3=01;35:*.wav=01;35:\
 ";
 
-PROMPT='%{$fg[green]%}%n@$(hostname) %{$fg[cyan]%}$(cwd)%{$fg[yellow]%}
+PROMPT='%{$fg[green]%}%n@$(hostname) %{$fg[magenta]%}%W %T %{$fg[cyan]%}$(cwd)%{$fg[yellow]%}
 %{$fg[blue]%}$(vi_mode)%(?/%{$reset_color%}/%{$fg[red]%})%(!.#.:)%{$reset_color%} '
 
 function vi_mode() {

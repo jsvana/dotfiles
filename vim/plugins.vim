@@ -22,6 +22,9 @@ Plug 'kshenoy/vim-signature'
 " Python folding
 Plug 'tmhedberg/SimpylFold'
 
+Plug 'jsvana/pyreformat', { 'dir': '~/.pyreformat' }
+Plug 'jsvana/pyreformat.vim'
+
 " Fuzzy finding
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
