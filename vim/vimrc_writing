@@ -1,0 +1,36 @@
+set nocompatible
+set backspace=indent,eol,start
+set nu
+set rnu
+filetype plugin indent on
+set tabstop=4
+set sw=4
+set wrap
+set linebreak
+set nolist
+set textwidth=0
+set wrapmargin=0
+set formatoptions-=t
+set formatoptions+=l
+
+nnoremap j gj
+nnoremap k gk
+
+set splitbelow
+set splitright
+
+set ttimeout ttimeoutlen=0
+
+" Remember last location in file
+set viminfo='10,\"100,:20,%,n~/.viminfo'
+
+set t_Co=256
+
+set background=dark
+let g:forgotten_dark_LineNr = 'off'
+colorscheme forgotten-dark
+
+nmap <S-k> <S-{>
+nmap <S-j> <S-}>
+vmap <S-k> <S-{>
+vmap <S-j> <S-}>

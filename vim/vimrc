@@ -79,15 +79,9 @@ set viminfo='10,\"100,:20,%,n~/.viminfo'
 " All the colors
 set t_Co=256
 
-if filereadable(expand($DOTFILES . "/vim/plugins.vim"))
-  source $DOTFILES/vim/plugins.vim
-endif
-
 " Dat color scheme
-set background=dark
-colorscheme hybrid
-highlight ColorColumn ctermbg=7
-highlight ColorColumn guibg=Gray
+let g:forgotten_dark_LineNr = 'off'
+colorscheme forgotten-dark
 
 "colorscheme tender
 "let g:tender_airline = 1
@@ -122,15 +116,10 @@ nmap <Leader>p <F2>
 " Toggle hlsearch
 nmap <Leader>s :set hlsearch!<CR>
 
-nmap <Leader>f :FZF<CR>
-
 " Reload vimrc
 map <silent> <Leader>R :source ~/.vim/vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
 nnoremap <Leader><Leader> za
-
-" Reload vimrc
-map <silent> <Leader>R :source ~/.vim/vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
 " Dat whitespace
 autocmd BufWritePre * :%s/\s\+$//e
@@ -144,15 +133,13 @@ if has('mouse_sgr')
 	set ttymouse=sgr
 endif
 
-"autocmd BufWritePost *.cpp,*.c,*.h silent exec "!clang-format -i %:p"
+autocmd BufWritePost *.cpp,*.c,*.h silent exec "!clang-format -i %:p"
 autocmd BufWritePost *.go silent exec "!gofmt -w %:p"
 
 " Make Python indenting behave
 let g:pyindent_open_paren = '&sw'
 let g:pyindent_nested_paren = '&sw'
 let g:pyindent_continue = '&sw'
-
-"let g:livepreview_engine = 'xelatex --interaction nonstopmode'
 
 " Machine-specific configs
 if filereadable(expand($DOTFILES . "/vim/local_settings.vim"))

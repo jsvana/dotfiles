@@ -7,6 +7,11 @@ function config_link {
   fi
 }
 
+config_link xinitrc
+config_link Xdefaults
+config_link Xresources
+config_link Xdefaults.d
+
 config_link gitconfig
 config_link gitignore
 config_link hgrc

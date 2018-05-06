@@ -1,0 +1,21 @@
+[submodule "vim/pack/jsvana/start/vim-airline"]
+	path = vim/pack/jsvana/start/vim-airline
+	url = https://github.com/vim-airline/vim-airline.git
+[submodule "vim/pack/jsvana/start/ale"]
+	path = vim/pack/jsvana/start/ale
+	url = https://github.com/w0rp/ale
+[submodule "vim/pack/jsvana/start/forgotten"]
+	path = vim/pack/jsvana/start/forgotten
+	url = https://github.com/nightsense/forgotten
+[submodule "vim/pack/jsvana/opt/forgotten"]
+	path = vim/pack/jsvana/opt/forgotten
+	url = https://github.com/nightsense/forgotten
+[submodule "vim/pack/jsvana/opt/nerdcommenter"]
+	path = vim/pack/jsvana/opt/nerdcommenter
+	url = https://github.com/scrooloose/nerdcommenter
+[submodule "vim/pack/jsvana/start/nerdcommenter"]
+	path = vim/pack/jsvana/start/nerdcommenter
+	url = https://github.com/scrooloose/nerdcommenter
+[submodule "vim/pack/jsvana/start/vim-latex-live-preview"]
+	path = vim/pack/jsvana/start/vim-latex-live-preview
+	url = https://github.com/xuhdev/vim-latex-live-preview
