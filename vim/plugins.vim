@@ -75,6 +75,9 @@ Plug 'jlfwong/vim-arcanist'
 " ChaiScript highlighting
 Plug 'ChaiScript/vim-chaiscript'
 
+" Live LaTeX PDF previewing
+Plug 'xuhdev/vim-latex-live-preview'
+
 if filereadable(expand("~/.vimrc.bundles.local"))
   source ~/.vimrc.bundles.local
 endif

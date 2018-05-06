@@ -1,11 +1,4 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =9
-let g:netrw_dirhist_1='/home/jsvana/.offlineimap'
-let g:netrw_dirhist_2='/home/jsvana/.dotfiles/polybar'
-let g:netrw_dirhist_3='/home/jsvana/Downloads/tonc/code/basic/sbb_reg'
-let g:netrw_dirhist_4='/home/jsvana/projects/runemetrics'
-let g:netrw_dirhist_5='/home/jsvana/projects/runemetrics/runemetrics'
-let g:netrw_dirhist_6='/opt/devkitpro/devkitARM/include/gdb'
-let g:netrw_dirhist_7='/usr/local/include'
-let g:netrw_dirhist_8='/home/jsvana/projects/solver/build'
-let g:netrw_dirhist_9='/home/jsvana/projects/google-abook'
+let g:netrw_dirhist_cnt =2
+let g:netrw_dirhist_1='/home/jsvana/.screenlayout'
+let g:netrw_dirhist_2='/home/jsvana/interviews/questions'

@@ -47,12 +47,12 @@ padding-right = 0
 module-margin-left = 1
 module-margin-right = 1
 
-font-0 = Dina:size=10;0
+font-0 = "Envy Code R:size=12;0"
 font-1 = unifont:size=6:heavy:fontformat=truetype;-2
 font-2 = siji:pixelsize=10;0
 
 modules-left = i3
-modules-center = date
+modules-center = date metar diffs
 modules-right = volume wlan battery
 
 tray-position = right
@@ -121,6 +121,16 @@ format-underline = #0a6cf5
 
 label = %date% %time%
 
+[module/metar]
+type = custom/script
+interval = 1800
+exec = "/home/jsvana/bin/metar.sh kpao"
+
+[module/diffs]
+type = custom/script
+interval = 60
+exec = "/home/jsvana/bin/diffs.sh"
+
 [module/volume]
 type = internal/volume
 
@@ -156,10 +166,10 @@ battery = BAT0
 adapter = AC
 full-at = 98
 
-format-charging = <label-charging>
+format-charging = C:<label-charging>
 format-charging-underline = #ffb52a
 
-format-discharging = <label-discharging>
+format-discharging = D:<label-discharging>
 format-discharging-underline = ${self.format-charging-underline}
 
 format-full-prefix =

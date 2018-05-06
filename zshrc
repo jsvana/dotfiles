@@ -83,9 +83,9 @@ function vi_mode() {
   local mode
   mode="${${KEYMAP/vicmd/N}/(main|viins)/I}"
   if [ -z "$mode" ]; then
-    echo "I"
+    echo -n "I"
   else
-    echo "$mode"
+    echo -n "$mode"
   fi
 }
 
@@ -103,6 +103,8 @@ alias -r vim='vim -O'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 alias screenshot="deepin-screenshot -s $HOME/Pictures/screenshots"
+
+alias vimw="vim -u ~/.vim/vimrc_writing"
 
 if [[ -a "$HOME/.zshrc.local" ]]; then
   source "$HOME/.zshrc.local"

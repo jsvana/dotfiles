@@ -53,7 +53,9 @@ set splitright
 set scrolloff=5
 
 " Let's hope nobody else uses this directory and edits the same files...
-set directory=/tmp
+"set directory=/tmp
+set backupdir=~/.vim_bck//
+set directory=~/.vim_tmp//
 
 set autoread
 
@@ -142,13 +144,15 @@ if has('mouse_sgr')
 	set ttymouse=sgr
 endif
 
-autocmd BufWritePost *.cpp,*.c,*.h silent exec "!clang-format -i %:p"
+"autocmd BufWritePost *.cpp,*.c,*.h silent exec "!clang-format -i %:p"
 autocmd BufWritePost *.go silent exec "!gofmt -w %:p"
 
 " Make Python indenting behave
 let g:pyindent_open_paren = '&sw'
 let g:pyindent_nested_paren = '&sw'
 let g:pyindent_continue = '&sw'
+
+"let g:livepreview_engine = 'xelatex --interaction nonstopmode'
 
 " Machine-specific configs
 if filereadable(expand($DOTFILES . "/vim/local_settings.vim"))
