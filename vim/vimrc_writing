@@ -26,10 +26,6 @@ set viminfo='10,\"100,:20,%,n~/.viminfo'
 
 set t_Co=256
 
-set background=dark
-let g:forgotten_dark_LineNr = 'off'
-colorscheme forgotten-dark
-
 nmap <S-k> <S-{>
 nmap <S-j> <S-}>
 vmap <S-k> <S-{>

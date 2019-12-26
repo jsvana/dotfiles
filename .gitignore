@@ -20,6 +20,7 @@ vim/bundle/*
 vim/plugged/*
 vim/local_settings.vim
 vim/netrwhist
+vim/.netrwhist
 
 zsh/functions.local
 

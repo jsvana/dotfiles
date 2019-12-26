@@ -79,13 +79,12 @@ set viminfo='10,\"100,:20,%,n~/.viminfo'
 " All the colors
 set t_Co=256
 
-" Dat color scheme
-let g:forgotten_dark_LineNr = 'off'
-colorscheme forgotten-dark
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+set background=dark
+let g:solarized_termtrans = 1
+colorscheme solarized8_flat
 
-"colorscheme tender
-"let g:tender_airline = 1
-"let g:airline_theme = 'tender'
 
 " Easy block movement
 nmap <S-k> <S-{>
@@ -140,6 +139,23 @@ autocmd BufWritePost *.go silent exec "!gofmt -w %:p"
 let g:pyindent_open_paren = '&sw'
 let g:pyindent_nested_paren = '&sw'
 let g:pyindent_continue = '&sw'
+
+"let g:ale_rust_rustfmt_executable = expand("$HOME/.cargo/bin/rustfmt")
+
+let b:ale_fix_on_save = 1
+let b:ale_linters = {'python': ['mypy', 'flake8']}
+let b:ale_fixers = {'python': ['black', 'isort'], 'rust': ['rustfmt']}
+
+if executable('rls')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'rls',
+        \ 'cmd': {server_info->['rustup', 'run', 'nightly', 'rls']},
+        \ 'whitelist': ['rust'],
+        \ })
+endif
+
+let g:lsp_signs_enabled = 1
+let g:lsp_highlight_references_enabled = 1
 
 " Machine-specific configs
 if filereadable(expand($DOTFILES . "/vim/local_settings.vim"))
