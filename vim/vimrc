@@ -76,6 +76,10 @@ let g:netrw_winsize = 10
 " Remember last location in file
 set viminfo='10,\"100,:20,%,n~/.viminfo'
 
+if filereadable(expand($DOTFILES . "/vim/plugins.vim"))
+  source $DOTFILES/vim/plugins.vim
+endif
+
 " All the colors
 let base16colorspace=256  " Access colors present in 256 colorspace
 

@@ -30,13 +30,14 @@
 *color15: #C5C8C6
 
 urxvt.scrollBar: false
-urxvt*font: xft:Dina:size=10
+urxvt*font: xft:Terminus:size=10
+URxvt.termName: xterm-256color
 
 urxvt.perl-ext-common: default,matcher,selection-to-clipboard
 
 urxvt.clipboard.autocopy: true
 
-urxvt*url-launcher: /usr/bin/google-chrome-stable
+urxvt*url-launcher: /usr/bin/chromium-browser
 urxvt*matcher.button: 1
 
 urxvt.cutchars: "()*,<>[]{}|│''"

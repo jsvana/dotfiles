@@ -24,7 +24,7 @@ margin-top = 5
 margin-bottom = 5
 
 [bar/main]
-monitor = DP2-2
+monitor = HDMI-1
 monitor-fallback = eDP1
 width = 100%
 height = 25
@@ -47,13 +47,13 @@ padding-right = 0
 module-margin-left = 1
 module-margin-right = 1
 
-font-0 = "Envy Code R:size=12;0"
+font-0 = "Terminal:size=10;0"
 font-1 = unifont:size=6:heavy:fontformat=truetype;-2
 font-2 = siji:pixelsize=10;0
 
 modules-left = i3
-modules-center = date metar diffs
-modules-right = volume wlan battery
+modules-center =
+modules-right = date volume
 
 tray-position = right
 tray-padding = 0
@@ -85,26 +85,6 @@ label-visible-background = ${self.label-focused-background}
 label-visible-underline = ${self.label-focused-underline}
 label-visible-padding = ${self.label-focused-padding}
 
-[module/wlan]
-type = internal/network
-interface = wlp4s0
-interval = 3.0
-
-format-connected = <label-connected>
-format-connected-underline = #9f78e1
-format-disconnected-underline = ${self.format-connected-underline}
-
-label-connected = %essid%
-label-disconnected = %ifname% disconnected
-label-disconnected-foreground = ${colors.foreground-alt}
-
-ramp-signal-0 = 
-ramp-signal-1 = 
-ramp-signal-2 = 
-ramp-signal-3 = 
-ramp-signal-4 = 
-ramp-signal-foreground = ${colors.foreground-alt}
-
 [module/date]
 type = internal/date
 interval = 5
@@ -121,18 +101,8 @@ format-underline = #0a6cf5
 
 label = %date% %time%
 
-[module/metar]
-type = custom/script
-interval = 1800
-exec = "/home/jsvana/bin/metar.sh kpao"
-
-[module/diffs]
-type = custom/script
-interval = 60
-exec = "/home/jsvana/bin/diffs.sh"
-
 [module/volume]
-type = internal/volume
+type = internal/alsa
 
 format-volume = <label-volume> <bar-volume>
 label-volume = VOL
@@ -159,32 +129,5 @@ bar-volume-fill-font = 2
 bar-volume-empty = ─
 bar-volume-empty-font = 2
 bar-volume-empty-foreground = ${colors.foreground-alt}
-
-[module/battery]
-type = internal/battery
-battery = BAT0
-adapter = AC
-full-at = 98
-
-format-charging = C:<label-charging>
-format-charging-underline = #ffb52a
-
-format-discharging = D:<label-discharging>
-format-discharging-underline = ${self.format-charging-underline}
-
-format-full-prefix =
-format-full-prefix-foreground = ${colors.foreground-alt}
-format-full-underline = ${self.format-charging-underline}
-
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-foreground = ${colors.foreground-alt}
-
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-foreground = ${colors.foreground-alt}
-animation-charging-framerate = 750
 
 ; vim:ft=dosini
