@@ -142,20 +142,15 @@ let g:pyindent_continue = '&sw'
 
 "let g:ale_rust_rustfmt_executable = expand("$HOME/.cargo/bin/rustfmt")
 
+let g:rustfmt_autosave = 1
+
 let b:ale_fix_on_save = 1
 let b:ale_linters = {'python': ['mypy', 'flake8']}
-let b:ale_fixers = {'python': ['black', 'isort'], 'rust': ['rustfmt']}
+let b:ale_fixers = {'python': ['black', 'isort']} ", 'rust': ['rustfmt']}
 
-if executable('rls')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'rls',
-        \ 'cmd': {server_info->['rustup', 'run', 'nightly', 'rls']},
-        \ 'whitelist': ['rust'],
-        \ })
-endif
+set runtimepath+=~/.vim-plugins/LanguageClient-neovim
 
-let g:lsp_signs_enabled = 1
-let g:lsp_highlight_references_enabled = 1
+let g:LanguageClient_serverCommands = {'rust': ['ra_lsp_server']}
 
 " Machine-specific configs
 if filereadable(expand($DOTFILES . "/vim/local_settings.vim"))
