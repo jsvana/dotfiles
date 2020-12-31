@@ -85,7 +85,6 @@ let base16colorspace=256  " Access colors present in 256 colorspace
 
 colorscheme base16-helios
 
-
 " Easy block movement
 nmap <S-k> <S-{>
 nmap <S-j> <S-}>

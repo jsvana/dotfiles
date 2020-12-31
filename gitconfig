@@ -1,14 +1,13 @@
 [core]
 	editor = vim
 	excludesfile = ~/.gitignore
-	pager = diff-so-fancy | less --tabs=4 -RFX
 [color]
 	ui = auto
 [web]
 	browser = open
 [user]
 	name = Jay Vana
-	email = jsvana@mtu.edu
+	email = jaysvana@gmail.com
 [branch]
 	autosetuprebase = always
 [push]
