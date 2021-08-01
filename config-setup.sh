@@ -1,7 +1,7 @@
 #!/bin/bash
 
-if [[ -n "$2" ]]; then
-  CONFIG_USER="$2"
+if [[ -n "$1" ]]; then
+  CONFIG_USER="$1"
 else
   CONFIG_USER="$USER"
 fi
