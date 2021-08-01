@@ -1,7 +1,10 @@
-synclient TouchPadOff=1
+setxkbmap -option 'caps:ctrl_modifier'
+xcape -e 'Caps_Lock=Escape'
+setxkbmap -option 'caps:ctrl_modifier'
+xcape -e 'Caps_Lock=Escape;Control_L=Escape;Control_R=Escape'
 
-srandrd "$HOME/bin/xrandr-mode"
+feh --bg-scale ~/wallpapers --randomize
 
-pulseaudio --start
+picom -bcCGfF -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 3 -D2 -m 0.88
 
-exec i3 -V >> ~/i3log-$(date +'%F-%k-%M-%S') 2>&1
+exec i3

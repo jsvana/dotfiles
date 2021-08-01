@@ -106,6 +106,10 @@ alias screenshot="deepin-screenshot -s $HOME/Pictures/screenshots"
 
 alias vimw="vim -u ~/.vim/vimrc_writing"
 
+if [[ -a "$HOME/.zshrc.colors" ]]; then
+  source "$HOME/.zshrc.colors"
+fi
+
 if [[ -a "$HOME/.zshrc.local" ]]; then
   source "$HOME/.zshrc.local"
 fi
