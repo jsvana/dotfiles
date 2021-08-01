@@ -1,9 +1,15 @@
 #!/bin/bash
 
+if [[ -n "$2" ]]; then
+  CONFIG_USER="$2"
+else
+  CONFIG_USER="$USER"
+fi
+
+
 function config_link {
-  if [[ ! -e ~/.$1 ]]
-  then
-    ln -s `pwd`/$1 ~/.$1
+  if [[ ! -e /home/$CONFIG_USER/.$1 ]]; then
+    ln -s `pwd`/$1 /home/$CONFIG_USER/.$1
   fi
 }
 
