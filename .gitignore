@@ -25,3 +25,5 @@ vim/.netrwhist
 zsh/functions.local
 
 .DS_Store
+
+Brewfile.lock.json

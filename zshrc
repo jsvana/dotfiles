@@ -1,5 +1,5 @@
 export DOTFILES="$HOME/.dotfiles"
-export PATH="$HOME/bin:/usr/local/bin:$DOTFILES/bin:$HOME/go/bin:/usr/local/share/npm/bin:$HOME/.rbenv/bin:$PATH"
+export PATH="$HOME/bin:$DOTFILES/bin:$PATH"
 
 export CLICOLOR=true
 export EDITOR="/usr/bin/vim"
@@ -7,8 +7,6 @@ export HISTFILE="$HOME/.zsh-history"
 export HISTSIZE=SAVEHIST=10240
 export LESSHISTFILE="-" # disable less history
 export LSCOLORS="exfxcxdxbxegedabagacad"
-
-export GOPATH="$HOME/go"
 
 setopt APPEND_HISTORY
 setopt AUTO_CD
@@ -31,8 +29,6 @@ KEYTIMEOUT=1
 
 zle -N newtab
 
-set -o vi
-
 # matches case insensitive for lowercase
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
@@ -46,69 +42,27 @@ bindkey '^[[Z' reverse-menu-complete
 # better killall completion
 zstyle ':completion:*:killall:*' command 'ps -u $USER -o cmd'
 
-alias ls="ls --color=auto"
-
 # Goodbye ^S and ^Q
 stty -ixon
 
 autoload colors; colors
 
-cwd () {
-  dir="${PWD/#$HOME/~}"
-  dir="${dir//\/data\/users\/$USER/~}"
-  echo "$dir"
-}
-
-export LS_COLORS="no=00:\
-fi=00:\
-di=01;36:\
-ln=01;36:\
-pi=40;33:\
-so=01;35:\
-do=01;35:\
-bd=40;33;01:\
-cd=40;33;01:\
-or=40;31;01:\
-ex=01;32:\
-*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.zip=01;31:*.gz=01;31:*.bz2=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:\
-*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:\
-*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.avi=01;35:\
-*.ogg=01;35:*.mp3=01;35:*.wav=01;35:\
-";
-
-PROMPT='%{$fg[green]%}%n@$(hostname) %{$fg[magenta]%}%W %T %{$fg[cyan]%}$(cwd)%{$fg[yellow]%}
-%{$fg[blue]%}$(vi_mode)%(?/%{$reset_color%}/%{$fg[red]%})%(!.#.:)%{$reset_color%} '
-
-function vi_mode() {
-  local mode
-  mode="${${KEYMAP/vicmd/N}/(main|viins)/I}"
-  if [ -z "$mode" ]; then
-    echo -n "I"
-  else
-    echo -n "$mode"
-  fi
-}
-
-function zle-line-init zle-keymap-select {
-  zle reset-prompt
-}
-zle -N zle-line-init
-zle -N zle-keymap-select
-
 autoload -Uz compinit
 compinit -u
 
-alias -r vim='vim -O'
+function zvm_config() {
+  ZVM_READKEY_ENGINE=$ZVM_READKEY_ENGINE_NEX
+  ZVM_CURSOR_STYLE_ENABLED=false
+  ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
+}
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+function zvm_after_init() {
+  [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+}
 
-alias screenshot="deepin-screenshot -s $HOME/Pictures/screenshots"
+alias vim="nvim -O"
 
-alias vimw="vim -u ~/.vim/vimrc_writing"
-
-if [[ -a "$HOME/.zshrc.colors" ]]; then
-  source "$HOME/.zshrc.colors"
-fi
+eval "$(starship init zsh)"
 
 if [[ -a "$HOME/.zshrc.local" ]]; then
   source "$HOME/.zshrc.local"
